@@ -2,7 +2,7 @@ import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import Container from "@/components/layout/container";
 import MapPreview from "@/components/map/map-preview";
-
+import LatestEarthquake from "@/components/dashboard/latest-earthquake";
 import SummaryCard from "@/components/dashboard/summary-card";
 
 const summaries = [
@@ -62,6 +62,9 @@ export default function DashboardPage() {
           </div>
           <div className="mt-14">
             <MapPreview />
+            <div className="mt-14">
+              <LatestEarthquake />
+            </div>
           </div>
         </Container>
       </section>
