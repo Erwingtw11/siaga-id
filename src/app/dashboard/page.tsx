@@ -1,6 +1,7 @@
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import Container from "@/components/layout/container";
+import MapPreview from "@/components/map/map-preview";
 
 import SummaryCard from "@/components/dashboard/summary-card";
 
@@ -58,6 +59,9 @@ export default function DashboardPage() {
                 description={item.description}
               />
             ))}
+          </div>
+          <div className="mt-14">
+            <MapPreview />
           </div>
         </Container>
       </section>
