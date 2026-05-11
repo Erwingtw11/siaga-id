@@ -6,26 +6,26 @@ export default function HeroSection() {
   return (
     <SectionWrapper>
       <Container>
-        <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
+        <div className="flex flex-col gap-14 pt-8 lg:flex-row lg:items-center lg:justify-between">
           <div className="max-w-2xl text-center lg:text-left">
             <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-cyan-400">
               Real-Time Disaster Monitoring
             </p>
 
-            <h1 className="text-4xl font-bold leading-tight sm:text-5xl md:text-6xl leading-tight text-white md:text-6xl">
+            <h1 className="text-4xl font-bold leading-[1.1] sm:text-5xl md:text-6xl leading-tight text-white md:text-6xl">
               Pantau Potensi Bencana Secara Real-Time
             </h1>
 
-            <p className="mt-6 text-lg text-white/70">
+            <p className="mt-7 max-w-xl text-lg leading-9 text-white/70">
               SIAGA.ID membantu masyarakat Indonesia mendapatkan informasi
               bencana lebih cepat melalui sistem peringatan dini berbasis data
               real-time.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-10 flex flex-wrap gap-5">
               <Button>Pantau Sekarang</Button>
 
-              <button className="rounded-full border border-white/10 px-5 py-3 text-sm font-medium text-white">
+              <button className="rounded-full border border-white/10 px-5 py-3 text-sm font-medium text-white transition hover:border-white/30">
                 Pelajari Lebih Lanjut
               </button>
             </div>

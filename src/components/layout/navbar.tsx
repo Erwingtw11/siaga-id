@@ -4,9 +4,9 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[#071120]/80 backdrop-blur-xl">
       <Container>
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-16 items-center justify-between gap-4">
           <div>
-            <h1 className="text-xl font-bold tracking-wide text-white">
+            <h1 className="text-lg font-bold sm:text-xl tracking-wide text-white">
               SIAGA<span className="text-red-500">.</span>ID
             </h1>
           </div>
