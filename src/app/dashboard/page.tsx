@@ -4,6 +4,7 @@ import Container from "@/components/layout/container";
 import MapPreview from "@/components/map/map-preview";
 import LatestEarthquake from "@/components/dashboard/latest-earthquake";
 import SummaryCard from "@/components/dashboard/summary-card";
+import ActivityPanel from "@/components/dashboard/activity-panel";
 
 const summaries = [
   {
@@ -64,6 +65,9 @@ export default function DashboardPage() {
             <MapPreview />
             <div className="mt-14">
               <LatestEarthquake />
+              <div className="mt-14">
+                <ActivityPanel />
+              </div>
             </div>
           </div>
         </Container>
