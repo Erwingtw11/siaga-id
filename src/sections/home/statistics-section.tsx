@@ -1,6 +1,7 @@
 import Container from "@/components/layout/container";
 import SectionWrapper from "@/components/layout/section-wrapper";
 import BaseCard from "@/components/cards/base-card";
+import FadeIn from "@/components/animations/fade-in";
 
 const statistics = [
   {
@@ -42,11 +43,13 @@ export default function StatisticsSection() {
 
         <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
           {statistics.map((item, index) => (
-            <BaseCard key={index}>
-              <h3 className="text-4xl font-bold text-white">{item.value}</h3>
+            <FadeIn key={index}>
+              <BaseCard>
+                <h3 className="text-4xl font-bold text-white">{item.value}</h3>
 
-              <p className="mt-3 text-white/60">{item.label}</p>
-            </BaseCard>
+                <p className="mt-3 text-white/60">{item.label}</p>
+              </BaseCard>
+            </FadeIn>
           ))}
         </div>
       </Container>

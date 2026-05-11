@@ -1,3 +1,5 @@
+import FadeIn from "@/components/animations/fade-in";
+
 const activities = [
   {
     title: "Gempa terdeteksi di Lampung Selatan",
@@ -36,30 +38,29 @@ export default function ActivityPanel() {
 
       <div className="space-y-5">
         {activities.map((activity, index) => (
-          <div
-            key={index}
-            className="flex items-start justify-between gap-4 rounded-2xl border border-white/10 p-4"
-          >
-            <div>
-              <h4 className="font-medium text-white">{activity.title}</h4>
+          <FadeIn key={index}>
+            <div className="flex items-start justify-between gap-4 rounded-2xl border border-white/10 p-4 transition duration-300 hover:border-cyan-400/20">
+              <div>
+                <h4 className="font-medium text-white">{activity.title}</h4>
 
-              <p className="mt-2 text-sm text-white/50">{activity.time}</p>
-            </div>
+                <p className="mt-2 text-sm text-white/50">{activity.time}</p>
+              </div>
 
-            <div
-              className={`rounded-full px-3 py-1 text-xs font-medium ${
-                activity.status === "Awas"
-                  ? "bg-red-500/20 text-red-400"
-                  : activity.status === "Siaga"
-                    ? "bg-orange-500/20 text-orange-400"
-                    : activity.status === "Realtime"
-                      ? "bg-cyan-400/20 text-cyan-400"
-                      : "bg-green-500/20 text-green-400"
-              }`}
-            >
-              {activity.status}
+              <div
+                className={`rounded-full px-3 py-1 text-xs font-medium ${
+                  activity.status === "Awas"
+                    ? "bg-red-500/20 text-red-400"
+                    : activity.status === "Siaga"
+                      ? "bg-orange-500/20 text-orange-400"
+                      : activity.status === "Realtime"
+                        ? "bg-cyan-400/20 text-cyan-400"
+                        : "bg-green-500/20 text-green-400"
+                }`}
+              >
+                {activity.status}
+              </div>
             </div>
-          </div>
+          </FadeIn>
         ))}
       </div>
     </div>

@@ -1,7 +1,7 @@
 import Container from "@/components/layout/container";
 import SectionWrapper from "@/components/layout/section-wrapper";
 import BaseCard from "@/components/cards/base-card";
-
+import FadeIn from "@/components/animations/fade-in";
 import { BellRing, ShieldAlert, MapPinned } from "lucide-react";
 
 const features = [
@@ -49,19 +49,21 @@ export default function FeaturesSection() {
             const Icon = feature.icon;
 
             return (
-              <BaseCard key={index}>
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-400/10">
-                  <Icon className="text-cyan-400" size={28} />
-                </div>
+              <FadeIn key={index}>
+                <BaseCard>
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-400/10">
+                    <Icon className="text-cyan-400" size={28} />
+                  </div>
 
-                <h3 className="mt-6 text-2xl font-semibold text-white">
-                  {feature.title}
-                </h3>
+                  <h3 className="mt-6 text-2xl font-semibold text-white">
+                    {feature.title}
+                  </h3>
 
-                <p className="mt-4 leading-relaxed text-white/70">
-                  {feature.description}
-                </p>
-              </BaseCard>
+                  <p className="mt-4 leading-relaxed text-white/70">
+                    {feature.description}
+                  </p>
+                </BaseCard>
+              </FadeIn>
             );
           })}
         </div>
