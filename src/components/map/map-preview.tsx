@@ -1,4 +1,9 @@
-import RealtimeMap from "./realtime-map";
+"use client";
+import dynamic from "next/dynamic";
+
+const RealtimeMap = dynamic(() => import("./realtime-map"), {
+  ssr: false,
+});
 
 const alerts = [
   {

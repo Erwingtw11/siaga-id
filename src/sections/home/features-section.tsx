@@ -1,8 +1,6 @@
+import { BellRing, MapPinned, ShieldAlert } from "lucide-react";
+
 import Container from "@/components/layout/container";
-import SectionWrapper from "@/components/layout/section-wrapper";
-import BaseCard from "@/components/cards/base-card";
-import FadeIn from "@/components/animations/fade-in";
-import { BellRing, ShieldAlert, MapPinned } from "lucide-react";
 
 const features = [
   {
@@ -27,47 +25,48 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <SectionWrapper>
+    <section id="features" className="py-28">
       <Container>
-        <div className="mb-10 text-center">
-          <p className="mb-3 text-sm font-medium uppercase tracking-[0.2em] text-cyan-400">
+        <div className="mx-auto max-w-4xl text-center">
+          <p className="text-sm font-medium uppercase tracking-[0.25em] text-cyan-400">
             Main Features
           </p>
 
-          <h2 className="text-3xl font-bold text-white md:text-4xl">
+          <h2 className="mt-4 text-4xl font-bold leading-tight text-white md:text-5xl">
             Teknologi Siaga Untuk Masyarakat Indonesia
           </h2>
 
-          <p className="mx-auto mt-4 max-w-2xl text-white/70">
+          <p className="mt-6 text-lg leading-8 text-white/60">
             SIAGA.ID dirancang untuk membantu masyarakat mendapatkan informasi
             bencana secara cepat, akurat, dan mudah dipahami.
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-16 grid gap-8 lg:grid-cols-3">
           {features.map((feature, index) => {
             const Icon = feature.icon;
 
             return (
-              <FadeIn key={index}>
-                <BaseCard>
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-400/10">
-                    <Icon className="text-cyan-400" size={28} />
-                  </div>
+              <div
+                key={index}
+                className="group min-h-[320px] rounded-3xl border border-white/10 bg-[#0B1324]/80 p-8 transition duration-300 hover:-translate-y-2 hover:border-cyan-400/20"
+              >
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-cyan-500/10">
+                  <Icon size={32} className="text-cyan-400" />
+                </div>
 
-                  <h3 className="mt-6 text-2xl font-semibold text-white">
-                    {feature.title}
-                  </h3>
+                <h3 className="mt-8 text-3xl font-bold text-white">
+                  {feature.title}
+                </h3>
 
-                  <p className="mt-4 leading-relaxed text-white/70">
-                    {feature.description}
-                  </p>
-                </BaseCard>
-              </FadeIn>
+                <p className="mt-6 text-lg leading-8 text-white/60">
+                  {feature.description}
+                </p>
+              </div>
             );
           })}
         </div>
       </Container>
-    </SectionWrapper>
+    </section>
   );
 }
