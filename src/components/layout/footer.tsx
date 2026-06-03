@@ -93,7 +93,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/about"
                   className="hover:text-white no-underline transition"
                 >
                   Tentang Kami

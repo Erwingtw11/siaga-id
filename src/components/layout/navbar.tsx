@@ -54,7 +54,7 @@ export default function Navbar() {
             </Link>
 
             <Link
-              href="#"
+              href="/about"
               className="text-sm font-medium text-white/70 no-underline transition hover:text-white"
             >
               Tentang Kami
@@ -131,7 +131,7 @@ export default function Navbar() {
               </Link>
 
               <Link
-                href="#"
+                href="/about"
                 className="text-sm font-semibold text-white/70 no-underline transition hover:text-white"
                 onClick={() => setIsOpen(false)}
               >
