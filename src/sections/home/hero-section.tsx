@@ -108,7 +108,7 @@ export default function HeroSection() {
       <div className="absolute bottom-[-10rem] left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-cyan-400/8 blur-3xl" />
 
       <motion.div
-        className="relative mx-auto grid max-w-7xl gap-14 px-4 pb-16 pt-14 sm:px-6 sm:pb-20 sm:pt-16 md:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] md:items-start md:gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.95fr)] lg:gap-16 lg:px-8 lg:pb-24 lg:pt-24"
+        className="relative mx-auto grid w-full max-w-[1500px] gap-14 px-5 pb-16 pt-14 sm:px-6 sm:pb-20 sm:pt-16 md:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] md:items-start md:gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.95fr)] lg:gap-16 lg:px-10 lg:pb-24 lg:pt-24"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -122,7 +122,7 @@ export default function HeroSection() {
             Realtime Monitoring Center
           </div>
 
-          <h1 className="mt-6 max-w-[11ch] text-[2.9rem] font-semibold leading-[0.94] tracking-[-0.05em] text-white text-pretty sm:max-w-[12ch] sm:text-[4rem] md:text-[4.5rem] lg:text-[4.85rem] xl:text-[5.15rem]">
+          <h1 className="mt-6 max-w-[11ch] text-[2.3rem] min-[375px]:text-[2.7rem] font-semibold leading-[0.94] tracking-[-0.05em] text-white text-pretty sm:max-w-[12ch] sm:text-[4rem] md:text-[4.5rem] lg:text-[4.85rem] xl:text-[5.15rem]">
             <span className="block">Pantau</span>
             <span className="block">ancaman</span>
             <span className="block bg-gradient-to-r from-white via-cyan-100 to-[#00D1FF] bg-clip-text text-transparent">
@@ -290,7 +290,7 @@ export default function HeroSection() {
               </div>
 
               <div className="mt-4 rounded-[22px] border border-white/10 bg-black/15 p-4">
-                <div className="flex items-center justify-between gap-3">
+                <div className="flex flex-col gap-3 min-[400px]:flex-row min-[400px]:items-center min-[400px]:justify-between">
                   <div>
                     <p className="text-xs font-medium uppercase tracking-[0.2em] text-slate-400">
                       Sinyal Terkini
@@ -300,7 +300,7 @@ export default function HeroSection() {
                     </p>
                   </div>
 
-                  <div className="rounded-full border border-cyan-400/15 bg-cyan-400/10 px-3 py-1.5 text-xs font-semibold text-cyan-200">
+                  <div className="w-fit shrink-0 rounded-full border border-cyan-400/15 bg-cyan-400/10 px-3 py-1.5 text-xs font-semibold text-cyan-200">
                     Sistem Aktif
                   </div>
                 </div>

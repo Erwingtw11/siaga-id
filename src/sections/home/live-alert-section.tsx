@@ -88,7 +88,7 @@ export default function LiveAlertSection() {
               Live Disaster Alerts
             </div>
 
-            <h2 className="mt-5 max-w-[13ch] text-[2.45rem] font-semibold leading-[1.02] tracking-[-0.04em] text-white sm:max-w-3xl sm:text-4xl lg:text-[3rem]">
+            <h2 className="mt-5 text-[2.2rem] font-bold leading-[1.08] tracking-tight text-white sm:text-4xl lg:text-[2.85rem] xl:text-[3.25rem]">
               Realtime alert cards dengan hirarki prioritas yang lebih jelas.
             </h2>
 
