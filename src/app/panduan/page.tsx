@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -78,11 +78,21 @@ const steps = [
 ];
 
 const faqs = [
-  { q: "Apakah Nusa Alert berbayar?", a: "Tidak, Nusa Alert sepenuhnya gratis untuk seluruh masyarakat Indonesia. Kami mendedikasikan platform ini sebagai inisiatif sosial untuk meningkatkan kesiapsiagaan bencana nasional." },
-  { q: "Dari mana Nusa Alert mendapatkan data kebencanaan?", a: "Kami mengintegrasikan sistem kami secara real‑time dengan API resmi BMKG serta jaringan sensor kebencanaan regional untuk akurasi tinggi." },
-  { q: "Bagaimana cara mengaktifkan notifikasi WhatsApp?", a: "Daftarkan nomor WhatsApp aktif melalui tombol ‘Aktifkan Notifikasi’ di navbar, lakukan verifikasi OTP, dan nomor Anda akan masuk ke sistem siaran." },
-  { q: "Apakah aplikasi Nusa Alert tersedia untuk iOS dan Android?", a: "Ya, aplikasi mobile Nusa Alert tersedia dalam versi Beta dan dapat diunduh melalui tautan di footer." },
-  { q: "Apa yang harus saya lakukan saat menerima peringatan gempa?", a: "Cari tempat berlindung di bawah meja kokoh, jauhi jendela, dan ikuti rute evakuasi di menu Panduan Darurat setelah getaran mereda." }
+  {
+    q: "Apakah Nusa Alert berbayar?", a: "Tidak, Nusa Alert sepenuhnya gratis untuk seluruh masyarakat Indonesia. Kami mendedikasikan platform ini sebagai inisiatif sosial untuk meningkatkan kesiapsiagaan bencana nasional."
+  },
+  {
+    q: "Dari mana Nusa Alert mendapatkan data kebencanaan?", a: "Kami mengintegrasikan sistem kami secara real‑time dengan API resmi BMKG serta jaringan sensor kebencanaan regional untuk akurasi tinggi."
+  },
+  {
+    q: "Bagaimana cara mengaktifkan notifikasi WhatsApp?", a: "Daftarkan nomor WhatsApp aktif melalui tombol ‘Aktifkan Notifikasi’ di navbar, lakukan verifikasi OTP, dan nomor Anda akan masuk ke sistem siaran."
+  },
+  {
+    q: "Apakah aplikasi Nusa Alert tersedia untuk iOS dan Android?", a: "Ya, aplikasi mobile Nusa Alert tersedia dalam versi Beta dan dapat diunduh melalui tautan di footer."
+  },
+  {
+    q: "Apa yang harus saya lakukan saat menerima peringatan gempa?", a: "Cari tempat berlindung di bawah meja kokoh, jauhi jendela, dan ikuti rute evakuasi di menu Panduan Darurat setelah getaran mereda."
+  }
 ];
 
 export default function GuidePage() {
@@ -164,7 +174,7 @@ export default function GuidePage() {
                     <div className={`absolute right-0 top-0 h-24 w-24 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${step.glow}`} />
                     <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0)_40%] pointer-events-none" />
                     <div className="flex justify-between items-start mb-6">
-                      <div className={`flex h-11 w-11 items-center justify-center rounded-xl border transition-all duration-500 group-hover:scale-110 ${step.iconColor}`}> 
+                      <div className={`flex h-11 w-11 items-center justify-center rounded-xl border transition-all duration-500 group-hover:scale-110 ${step.iconColor}`}>
                         <Icon size={20} className="stroke-[1.75]" />
                       </div>
                       <span className="text-2xl font-black text-white/10 tracking-widest group-hover:text-white/20 transition-colors duration-300">
