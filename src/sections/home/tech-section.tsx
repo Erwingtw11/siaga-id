@@ -96,7 +96,7 @@ export default function TechSection() {
                  {/* Tech icon/emblem */}
                  <div className="flex justify-center mb-3">
                    <div className={`flex h-10 w-10 items-center justify-center rounded-xl border ${tech.color.split(' ')[0]}`}>
-                     <Icon size={16} />
+                     <Icon />
                    </div>
                  </div>
 
