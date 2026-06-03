@@ -1,10 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import {
-  Activity,
-  BellRing,
-  Radar,
-  ShieldCheck,
-} from "lucide-react";
+import { AlertTriangle, Waves, CloudRain, ShieldCheck } from "lucide-react";
 
 import Container from "@/components/layout/container";
 
@@ -13,95 +8,102 @@ const statistics: Array<{
   label: string;
   note: string;
   icon: LucideIcon;
+  theme: "red" | "cyan" | "amber" | "emerald";
 }> = [
   {
-    value: "1,248+",
-    label: "Bencana Terdeteksi",
-    note: "Terakumulasi dari monitoring multi wilayah sepanjang hari.",
-    icon: Radar,
+    value: "128",
+    label: "Gempa Hari Ini",
+    note: "+12 dari kemarin",
+    icon: AlertTriangle,
+    theme: "red",
   },
   {
-    value: "38",
-    label: "Wilayah Dipantau",
-    note: "Titik rawan prioritas yang dipantau secara aktif dan konsisten.",
-    icon: Activity,
+    value: "3",
+    label: "Tsunami",
+    note: "Potensial Dalam 24 Jam",
+    icon: Waves,
+    theme: "cyan",
+  },
+  {
+    value: "5",
+    label: "Cuaca Ekstrem",
+    note: "Wilayah Terdeteksi",
+    icon: CloudRain,
+    theme: "amber",
   },
   {
     value: "24/7",
-    label: "Realtime Monitoring",
-    note: "Pusat monitoring terus aktif tanpa jeda untuk pembaruan cepat.",
+    label: "Sistem Aktif",
+    note: "Monitoring Real-time",
     icon: ShieldCheck,
-  },
-  {
-    value: "112",
-    label: "Alert Aktif Hari Ini",
-    note: "Notifikasi prioritas yang diklasifikasikan berdasarkan level risiko.",
-    icon: BellRing,
+    theme: "emerald",
   },
 ];
 
 export default function StatisticsSection() {
   return (
-    <section className="relative py-24 md:py-32">
-      <div className="absolute inset-x-0 top-12 h-48 bg-[radial-gradient(circle_at_center,rgba(0,209,255,0.12),transparent_65%)]" />
+    <section className="relative border-b border-white/5 bg-[#071120] py-10">
+      <div className="absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_center,rgba(0,209,255,0.04),transparent_65%)] pointer-events-none" />
 
       <Container>
-        <div className="grid gap-10 xl:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] xl:items-end">
-          <div>
-            <p className="text-sm font-medium uppercase tracking-[0.25em] text-cyan-400">
-              Monitoring Statistics
-            </p>
-
-            <h2 className="mt-4 max-w-[13ch] text-[2.4rem] font-semibold leading-[1.04] tracking-[-0.04em] text-white sm:max-w-3xl sm:text-4xl lg:text-[3rem]">
-              Snapshot statistik yang lebih rapi untuk membaca intensitas
-              monitoring secara cepat.
-            </h2>
-          </div>
-
-          <p className="max-w-2xl text-base leading-7 text-slate-300 sm:text-lg sm:leading-8 xl:justify-self-end">
-            NUSA ALERT menampilkan ringkasan angka penting dalam layout yang
-            lebih konsisten, mudah dipindai, dan nyaman dipakai dari mobile
-            sampai desktop.
-          </p>
-        </div>
-
-        <div className="mt-14 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {statistics.map((item) => {
             const Icon = item.icon;
 
-            return (
-              <div
-                key={item.label}
-                className="group relative overflow-hidden rounded-[28px] border border-white/10 bg-[linear-gradient(180deg,rgba(15,23,42,0.92),rgba(8,15,30,0.96))] p-5 shadow-[0_18px_46px_rgba(2,6,23,0.32)] backdrop-blur-xl transition duration-300 hover:-translate-y-1.5 hover:border-cyan-400/20 hover:shadow-[0_24px_60px_rgba(2,6,23,0.4)] sm:p-6"
-              >
-                <div className="absolute right-0 top-0 h-28 w-28 rounded-full bg-cyan-400/10 blur-3xl transition duration-300 group-hover:bg-cyan-400/16" />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0)_26%)]" />
+            const themeColors = {
+              red: {
+                icon: "text-red-400 border-red-500/20 bg-red-500/10 shadow-[0_0_15px_rgba(239,68,68,0.15)] animate-pulse",
+                note: "text-red-400 font-bold",
+                glow: "bg-red-500/5 group-hover:bg-red-500/10",
+              },
+              cyan: {
+                icon: "text-cyan-400 border-cyan-500/20 bg-cyan-500/10 shadow-[0_0_15px_rgba(6,182,212,0.15)]",
+                note: "text-cyan-400 font-semibold",
+                glow: "bg-cyan-500/5 group-hover:bg-cyan-500/10",
+              },
+              amber: {
+                icon: "text-amber-400 border-amber-500/20 bg-amber-500/10 shadow-[0_0_15px_rgba(245,158,11,0.15)]",
+                note: "text-slate-400 font-medium",
+                glow: "bg-amber-500/5 group-hover:bg-amber-500/10",
+              },
+              emerald: {
+                icon: "text-emerald-400 border-emerald-500/20 bg-emerald-500/10 shadow-[0_0_15px_rgba(16,185,129,0.15)]",
+                note: "text-emerald-400 font-bold",
+                glow: "bg-emerald-500/5 group-hover:bg-emerald-500/10",
+              },
+            }[item.theme];
 
-                <div className="relative flex min-h-[220px] flex-col">
-                  <div className="flex items-center justify-between gap-4">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-cyan-400/15 bg-cyan-400/10 text-cyan-300">
-                      <Icon size={24} />
-                    </div>
+             return (
+               <div
+                 key={item.label}
+                 className="group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-gradient-to-b from-[#0F172A]/70 to-[#070b14]/90 p-4 shadow-[0_12px_30px_rgba(0,0,0,0.3)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/[0.12] hover:shadow-[0_18px_40px_rgba(0,0,0,0.4)]"
+               >
+                 {/* Subtle themed glow blur in top right */}
+                 <div className={`absolute -right-6 -top-6 h-20 w-20 rounded-full blur-2xl transition-all duration-500 ${themeColors.glow}`} />
 
-                    <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[0.72rem] font-medium uppercase tracking-[0.2em] text-slate-400">
-                      Live Sync
-                    </span>
-                  </div>
+                 <div className="relative flex items-center gap-3">
+                   {/* Icon Container */}
+                   <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border ${themeColors.icon}`}>
+                     <Icon size={18} />
+                   </div>
 
-                  <p className="mt-8 text-xs font-medium uppercase tracking-[0.22em] text-slate-400">
-                    {item.label}
-                  </p>
-
-                  <h3 className="mt-3 text-4xl font-semibold tracking-[-0.05em] text-white sm:text-[3.25rem]">
-                    {item.value}
-                  </h3>
-
-                  <p className="mt-auto pt-8 text-sm leading-6 text-slate-300">
-                    {item.note}
-                  </p>
-                </div>
-              </div>
-            );
+                   {/* Value and Label */}
+                   <div className="min-w-0">
+                     <div className="flex items-baseline gap-2">
+                       <span className="text-2xl font-extrabold tracking-tight text-white leading-none">
+                         {item.value}
+                       </span>
+                     </div>
+                     <p className="mt-1.5 text-[0.62rem] font-bold uppercase tracking-[0.16em] text-slate-400">
+                       {item.label}
+                     </p>
+                     <p className={`mt-1 text-xs ${themeColors.note}`}>
+                       {item.note}
+                     </p>
+                   </div>
+                 </div>
+               </div>
+             );
           })}
         </div>
       </Container>

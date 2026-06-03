@@ -143,8 +143,8 @@ export default function LiveAlertSection() {
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0)_22%)]" />
 
-                <div className="relative flex h-full min-h-[280px] flex-col">
-                  <div className="flex flex-wrap items-start justify-between gap-3">
+                 <div className="relative flex h-full min-h-[300px] flex-col">
+                   <div className="flex flex-wrap items-start justify-between gap-4">
                     <div className="flex items-center gap-3">
                       <div
                         className={`flex h-12 w-12 items-center justify-center rounded-2xl border bg-white/[0.04] ${statusStyle.ring}`}
@@ -170,7 +170,7 @@ export default function LiveAlertSection() {
                     </div>
                   </div>
 
-                  <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                   <div className="mt-8 flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
                     <div className="min-w-0">
                       <p className="flex items-center gap-2 text-sm text-slate-400">
                         <MapPin size={15} className="text-cyan-300" />
@@ -196,7 +196,7 @@ export default function LiveAlertSection() {
                     </div>
                   </div>
 
-                  <div className="mt-6 grid gap-3 sm:grid-cols-3">
+                   <div className="mt-8 grid gap-4 sm:grid-cols-3">
                     <div className="rounded-[20px] border border-white/10 bg-white/[0.04] p-4">
                       <p className="flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-slate-400">
                         <Waves size={14} className="text-cyan-300" />
@@ -228,7 +228,7 @@ export default function LiveAlertSection() {
                     </div>
                   </div>
 
-                  <div className="mt-auto flex flex-col items-start gap-4 border-t border-white/10 pt-5 sm:flex-row sm:items-center sm:justify-between">
+                   <div className="mt-auto flex flex-col items-start gap-6 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
                     <p className="max-w-xl text-sm text-slate-400">
                       Pemantauan otomatis tetap berjalan pada tingkat{" "}
                       <span className={`font-medium ${statusStyle.metric}`}>
