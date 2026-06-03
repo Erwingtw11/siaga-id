@@ -167,7 +167,7 @@ export default function GuidePage() {
 
               <div className="flex justify-center">
                 <span className="inline-flex items-center gap-2 rounded-full border border-slate-800 bg-slate-900/80 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-slate-400 backdrop-blur-sm mx-auto">
-                  ✨ Panduan Penggunaan
+                  Panduan Penggunaan
                 </span>
               </div>
 
