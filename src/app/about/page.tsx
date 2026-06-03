@@ -101,39 +101,109 @@ export default function AboutPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 border-b border-white/5">
+      <section className="relative overflow-hidden border-b border-white/5">
         <Container>
-          <div className="text-center max-w-4xl mx-auto space-y-6">
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 rounded-full border border-red-500/15 bg-red-500/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.25em] text-red-400"
-            >
-              <Sparkles size={12} className="animate-pulse" /> TENTANG KAMI
-            </motion.div>
+          <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[85vh] py-20">
 
-            <motion.h1
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight"
-            >
-              Menjaga Nusantara, <br />
-              <span className="bg-gradient-to-r from-red-500 via-amber-400 to-cyan-400 bg-clip-text text-transparent">
-                Melindungi Setiap Jiwa
-              </span>
-            </motion.h1>
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-red-500/20 bg-red-500/10 px-4 py-2 text-red-400 text-sm font-semibold mb-6">
+                <Sparkles size={16} />
+                Platform Mitigasi Bencana Indonesia
+              </div>
 
-            <motion.p
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-slate-400 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed"
-            >
-              Nusa Alert adalah platform teknologi dan edukasi kebencanaan terdepan di Indonesia.
-              Kami menjembatani sains data real-time dengan aksi keselamatan publik.
-            </motion.p>
+              <h1 className="text-5xl lg:text-7xl font-black leading-tight">
+                Menjaga Nusantara,
+                <br />
+                <span className="bg-gradient-to-r from-red-500 via-amber-400 to-cyan-400 bg-clip-text text-transparent">
+                  Melindungi Setiap Jiwa
+                </span>
+              </h1>
+
+              <p className="mt-6 text-slate-400 text-lg max-w-xl">
+                Sistem peringatan dini berbasis AI yang membantu masyarakat
+                Indonesia menghadapi gempa bumi, tsunami, banjir, dan erupsi
+                gunung api secara cepat dan akurat.
+              </p>
+
+              <div className="flex flex-wrap gap-4 mt-8">
+                <button className="px-6 py-3 rounded-xl bg-red-500 hover:bg-red-600 transition font-semibold">
+                  Jelajahi Peta Bencana
+                </button>
+
+                <button className="px-6 py-3 rounded-xl border border-white/10 hover:border-cyan-500 transition">
+                  Pelajari Lebih Lanjut
+                </button>
+              </div>
+
+              <div className="grid grid-cols-3 gap-6 mt-12">
+                <div>
+                  <h3 className="text-2xl font-bold text-red-400">100K+</h3>
+                  <p className="text-slate-500 text-sm">Pengguna</p>
+                </div>
+
+                <div>
+                  <h3 className="text-2xl font-bold text-cyan-400">50+</h3>
+                  <p className="text-slate-500 text-sm">Wilayah</p>
+                </div>
+
+                <div>
+                  <h3 className="text-2xl font-bold text-emerald-400">24/7</h3>
+                  <p className="text-slate-500 text-sm">Monitoring</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="absolute inset-0 bg-cyan-500/20 blur-[120px]" />
+
+              <div className="relative rounded-3xl border border-white/10 bg-[#0B1526]/80 backdrop-blur-xl p-8">
+
+                <div className="flex items-center justify-between mb-6">
+                  <span className="text-white font-semibold">
+                    Nusa Alert Dashboard
+                  </span>
+
+                  <span className="text-xs text-emerald-400">
+                    ● LIVE
+                  </span>
+                </div>
+
+                <div className="space-y-4">
+
+                  <div className="rounded-xl bg-white/5 p-4">
+                    <p className="text-slate-400 text-sm">
+                      Aktivitas Sensor
+                    </p>
+
+                    <h3 className="text-3xl font-bold mt-2">
+                      2.4M
+                    </h3>
+                  </div>
+
+                  <div className="rounded-xl bg-white/5 p-4">
+                    <p className="text-slate-400 text-sm">
+                      Notifikasi Terkirim
+                    </p>
+
+                    <h3 className="text-3xl font-bold mt-2 text-cyan-400">
+                      1.2M
+                    </h3>
+                  </div>
+
+                  <div className="rounded-xl bg-white/5 p-4">
+                    <p className="text-slate-400 text-sm">
+                      Area Terpantau
+                    </p>
+
+                    <h3 className="text-3xl font-bold mt-2 text-emerald-400">
+                      50+
+                    </h3>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
           </div>
         </Container>
       </section>
@@ -280,7 +350,7 @@ export default function AboutPage() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+            className="grid gap-8 md:grid-cols-2 xl:grid-cols-3"
           >
             {stats.map((stat, index) => (
               <motion.div

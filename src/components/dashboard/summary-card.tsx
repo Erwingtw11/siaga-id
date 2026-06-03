@@ -1,21 +1,40 @@
-type SummaryCardProps = {
+"use client";
+
+import React from "react";
+
+interface SummaryCardProps {
   title: string;
   value: string;
   description: string;
-};
+}
 
-export default function SummaryCard({
-  title,
-  value,
-  description,
-}: SummaryCardProps) {
+export default function SummaryCard({ title, value, description }: SummaryCardProps) {
+  const isOnline = value.toLowerCase() === "online";
+
   return (
-    <div className="rounded-[28px] border border-white/10 bg-[#0B1324]/80 p-7">
-      <p className="text-sm text-white/50">{title}</p>
+    // SEMUA BORDER & BACKGROUND KOTAK DIHAPUS TOTAL DI SINI
+    <div className="w-full py-2 px-1 transition-all duration-200 hover:translate-y-[-2px]">
+      <div className="flex flex-col space-y-1">
 
-      <h3 className="mt-3 text-6xl font-bold text-white">{value}</h3>
+        {/* Judul Kecil Atas */}
+        <p className="text-[10px] font-bold uppercase tracking-widest text-slate-500">
+          {title}
+        </p>
 
-      <p className="mt-4 text-sm leading-7 text-white/55">{description}</p>
+        {/* Angka / Status Utama */}
+        <h3
+          className={`text-2xl sm:text-3xl font-black tracking-tight leading-none ${isOnline ? "text-emerald-400" : "text-white"
+            }`}
+        >
+          {value}
+        </h3>
+
+        {/* Deskripsi Bawah */}
+        <p className="text-xs text-slate-400 leading-normal font-normal">
+          {description}
+        </p>
+
+      </div>
     </div>
   );
 }

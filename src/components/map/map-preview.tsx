@@ -1,88 +1,57 @@
 "use client";
 
-import dynamic from "next/dynamic";
-
-const RealtimeMap = dynamic(() => import("./realtime-map"), {
-  ssr: false,
-});
+import React from "react";
+import { Radio, MapPin, Activity } from "lucide-react";
 
 export default function MapPreview() {
   return (
-    <div className="relative">
-      {/* HEADER */}
-      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 p-5">
-        <div>
-          <p className="text-xs font-medium uppercase tracking-[0.3em] text-cyan-400">
+    <div className="w-full space-y-6">
+
+      {/* ── HEADER & LIVE ALERT ROW ───────────────────────────────────── */}
+      {/* Menggunakan flexbox agar judul peta dan info alert berjejer rapi di atas */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-2">
+        <div className="space-y-1">
+          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-400">
             Disaster Monitoring Map
           </p>
-
-          <h2 className="mt-2 text-2xl font-bold text-white">
+          <h2 className="text-2xl font-black text-white tracking-tight">
             Peta Monitoring Indonesia
           </h2>
         </div>
 
-        <div className="flex items-center gap-3">
-          <div className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-white/70">
-            38 Wilayah Aktif
+        {/* Info Alert Ringkas (Dipindah ke atas agar peta bersih total) */}
+        <div className="inline-flex flex-wrap items-center gap-x-4 gap-y-1 bg-slate-950/60 border border-slate-900 rounded-xl px-4 py-2.5 backdrop-blur-sm">
+          <div className="flex items-center gap-1.5">
+            <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse" />
+            <span className="text-xs font-black text-white uppercase tracking-tight">Gempa M 5.6</span>
           </div>
-
-          <div className="rounded-full bg-green-500/10 px-3 py-2 text-xs font-medium text-green-400">
-            System Online
-          </div>
+          <div className="hidden sm:block h-3 w-[1px] bg-slate-800" />
+          <span className="text-xs text-slate-400 flex items-center gap-1">
+            <MapPin size={12} className="text-slate-500" /> Sukabumi
+          </span>
+          <div className="hidden sm:block h-3 w-[1px] bg-slate-800" />
+          <span className="text-xs text-slate-400 flex items-center gap-1">
+            <Activity size={12} className="text-slate-500" /> 10 KM • <span className="text-amber-500 font-bold">Siaga</span>
+          </span>
         </div>
       </div>
 
-      {/* MAP */}
-      <div className="relative h-[380px] overflow-hidden md:h-[520px]">
-        <RealtimeMap />
-
-        {/* OVERLAY */}
-        <div className="absolute left-4 top-4 z-[999] max-w-xs rounded-3xl border border-white/10 bg-[#081120]/90 p-4 backdrop-blur-xl">
-          <p className="text-xs font-medium uppercase tracking-[0.25em] text-cyan-400">
-            Live Alert
-          </p>
-
-          <h3 className="mt-2 text-xl font-bold text-white">Gempa M 5.6</h3>
-
-          <p className="mt-2 text-sm leading-6 text-white/60">
-            Aktivitas gempa terdeteksi di Sukabumi dan sedang dipantau realtime.
-          </p>
-
-          <div className="mt-5 flex items-center justify-between">
-            <div>
-              <p className="text-xs text-white/50">Kedalaman</p>
-
-              <h4 className="mt-1 text-lg font-bold text-white">10 KM</h4>
-            </div>
-
-            <div>
-              <p className="text-xs text-white/50">Status</p>
-
-              <h4 className="mt-1 text-lg font-bold text-orange-400">Siaga</h4>
-            </div>
-          </div>
-        </div>
-
-        {/* LEGEND */}
-        <div className="absolute bottom-4 right-4 z-[999] rounded-2xl border border-white/10 bg-[#081120]/90 p-3 backdrop-blur-xl">
-          <div className="space-y-2 text-xs">
-            <div className="flex items-center gap-2 text-white/70">
-              <div className="h-2.5 w-2.5 rounded-full bg-red-500" />
-              Awas
-            </div>
-
-            <div className="flex items-center gap-2 text-white/70">
-              <div className="h-2.5 w-2.5 rounded-full bg-yellow-400" />
-              Waspada
-            </div>
-
-            <div className="flex items-center gap-2 text-white/70">
-              <div className="h-2.5 w-2.5 rounded-full bg-green-400" />
-              Normal
-            </div>
-          </div>
-        </div>
+      {/* ── CONTAINER GOOGLE MAPS PURE ─────────────────────────────────── */}
+      {/* Dibuat polos, fokus, tanpa ada teks kustom melayang yang merusak UI */}
+      <div className="relative w-full h-[520px] rounded-2xl overflow-hidden border border-slate-900 bg-[#030712] shadow-2xl">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15847.213233633887!2d106.9266!3d-6.9214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sid!2sid!4v1717431521000!5m2!1sid!2sid"
+          className="w-full h-full absolute inset-0 opacity-85"
+          style={{
+            border: 0,
+            filter: "invert(90%) hue-rotate(180deg) brightness(95%) contrast(90%)"
+          }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
       </div>
+
     </div>
   );
 }

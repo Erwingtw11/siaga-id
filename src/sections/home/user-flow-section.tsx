@@ -54,59 +54,59 @@ export default function UserFlowSection() {
       {/* Background Glow */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 h-80 w-80 rounded-full bg-indigo-500/3 blur-[120px] pointer-events-none" />
 
-      <Container>
-        <div className="text-center space-y-4">
-          <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/15 bg-cyan-500/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.25em] text-cyan-400">
-            CARA KERJA NUSA ALERT
-          </div>
+       <Container>
+         <div className="text-center space-y-4">
+           <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/15 bg-cyan-500/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.25em] text-cyan-400">
+             CARA KERJA NUSA ALERT
+           </div>
 
-          <h2 className="mx-auto max-w-3xl text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-[2.6rem]">
-            Informasi Cepat, Respon Tepat, Selamatkan Nyawa
-          </h2>
-        </div>
+           <h2 className="mx-auto max-w-3xl text-[2.2rem] font-bold leading-tight text-white sm:text-3xl lg:text-[2.4rem]">
+             Informasi Cepat, Respon Tepat, Selamatkan Nyawa
+           </h2>
+         </div>
 
-        {/* Workflow Grid Wrapper */}
-        <div className="relative mt-16">
-          {/* Horizontal dotted connector line for desktop */}
-          <div className="absolute top-[28px] left-[8%] right-[8%] h-[2px] bg-gradient-to-r from-blue-500/20 via-amber-500/20 to-red-500/20 [background-image:linear-gradient(to_right,#ffffff_1px,transparent_1px)] [background-size:12px_1px] pointer-events-none hidden lg:block" />
-
-          {/* Vertical dotted connector line for mobile */}
-          <div className="absolute left-[28px] top-6 bottom-6 w-[2px] [background-image:linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] [background-size:1px_12px] opacity-15 pointer-events-none lg:hidden" />
-
-          <div className="grid gap-8 lg:grid-cols-6 relative z-10">
-            {steps.map((step) => {
-              const Icon = step.icon;
-
-              return (
-                <div
-                  key={step.number}
-                  className="flex flex-row lg:flex-col items-start lg:items-center gap-5 lg:gap-0 lg:text-center group"
-                >
-                  {/* Glowing Node Circle */}
-                  <div className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-full border transition-all duration-300 group-hover:scale-105 ${step.color}`}>
-                    <Icon size={20} />
-                  </div>
-
-                  {/* Step Info Content */}
-                  <div className="min-w-0 lg:mt-5">
-                    {/* Number Badge */}
-                    <span className="inline-block text-[0.65rem] font-black tracking-widest text-cyan-400 bg-cyan-400/10 px-2 py-0.5 rounded uppercase border border-cyan-400/20">
-                      {step.number}
-                    </span>
-
-                    <h4 className="mt-2.5 text-base font-bold text-white tracking-tight">
-                      {step.title}
-                    </h4>
-
-                    <p className="mt-1 text-xs leading-relaxed text-slate-400 max-w-[200px]">
-                      {step.description}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+           {/* Workflow Grid Wrapper */}
+           <div className="relative mt-14">
+             {/* Horizontal dotted connector line for desktop */}
+             <div className="absolute top-[24px] left-[10%] right-[10%] h-[1.5px] bg-gradient-to-r from-blue-500/15 via-amber-500/15 to-red-500/15 [background-image:linear-gradient(to_right,#ffffff_1px,transparent_1px)] [background-size:16px_1px] pointer-events-none hidden lg:block" />
+ 
+             {/* Vertical dotted connector line for mobile */}
+             <div className="absolute left-[24px] top-6 bottom-6 w-[1.5px] [background-image:linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] [background-size:1px_16px] opacity-10 pointer-events-none lg:hidden" />
+ 
+             <div className="grid gap-6 lg:grid-cols-6 relative z-10">
+               {steps.map((step) => {
+                 const Icon = step.icon;
+ 
+                 return (
+                   <div
+                     key={step.number}
+                     className="flex flex-row lg:flex-col items-start lg:items-center gap-4 lg:gap-0 lg:text-center group"
+                   >
+                     {/* Glowing Node Circle */}
+                     <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full transition-all duration-300 group-hover:scale-105 ${step.color}`}>
+                       <Icon size={18} />
+                     </div>
+ 
+                     {/* Step Info Content */}
+                     <div className="min-w-0 lg:mt-4">
+                       {/* Number Badge */}
+                       <span className="inline-block text-[0.6rem] font-black tracking-widest text-cyan-400 bg-cyan-400/10 px-1.5 py-0.5 rounded uppercase border border-cyan-400/20">
+                         {step.number}
+                       </span>
+ 
+                       <h4 className="mt-2 text-[0.94rem] font-bold text-white tracking-tight">
+                         {step.title}
+                       </h4>
+ 
+                       <p className="mt-1.5 text-[0.78rem] leading-relaxed text-slate-400 max-w-[220px]">
+                         {step.description}
+                       </p>
+                     </div>
+                   </div>
+                 );
+               })}
+             </div>
+           </div>
       </Container>
     </section>
   );
