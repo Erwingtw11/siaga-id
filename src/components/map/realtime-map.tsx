@@ -1,81 +1,61 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-
-import L from "leaflet";
-
 import "leaflet/dist/leaflet.css";
 
-const markerIcon = new L.Icon({
-  iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
+import { MapContainer, TileLayer, CircleMarker, Popup } from "react-leaflet";
 
-  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
-
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-});
-
-type EarthquakeData = {
-  Wilayah: string;
-  Magnitude: string;
-  Coordinates: string;
-  Potensi: string;
-};
+const locations = [
+  {
+    name: "Aceh",
+    position: [5.5483, 95.3238],
+    color: "#ef4444",
+    status: "Awas",
+  },
+  {
+    name: "Bandung",
+    position: [-6.9175, 107.6191],
+    color: "#facc15",
+    status: "Waspada",
+  },
+  {
+    name: "Sulawesi Tengah",
+    position: [-1.43, 121.4456],
+    color: "#22c55e",
+    status: "Normal",
+  },
+];
 
 export default function RealtimeMap() {
-  const [earthquake, setEarthquake] = useState<EarthquakeData | null>(null);
-
-  useEffect(() => {
-    async function fetchEarthquake() {
-      try {
-        const response = await fetch(
-          "https://data.bmkg.go.id/DataMKG/TEWS/autogempa.json",
-        );
-
-        const data = await response.json();
-
-        setEarthquake(data.Infogempa.gempa);
-      } catch (error) {
-        console.error("BMKG Map Error:", error);
-      }
-    }
-
-    fetchEarthquake();
-  }, []);
-
-  const coordinates = earthquake?.Coordinates?.split(",").map((coord) =>
-    parseFloat(coord.trim()),
-  );
-
   return (
-    <div className="h-[400px] w-full overflow-hidden rounded-2xl">
-      <MapContainer
-        center={[-2.5489, 118.0149]}
-        zoom={5}
-        scrollWheelZoom={false}
-        className="h-full w-full"
-      >
-        <TileLayer
-          attribution="&copy; OpenStreetMap contributors"
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
+    <MapContainer
+      center={[-2.5489, 118.0149]}
+      zoom={5}
+      scrollWheelZoom={false}
+      attributionControl={false}
+      className="h-full w-full"
+    >
+      <TileLayer url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png" />
 
-        {coordinates && (
-          <Marker position={[coordinates[0], coordinates[1]]} icon={markerIcon}>
-            <Popup>
-              <div className="space-y-2">
-                <h3 className="font-bold">{earthquake?.Wilayah}</h3>
+      {locations.map((location, index) => (
+        <CircleMarker
+          key={index}
+          center={location.position as [number, number]}
+          radius={10}
+          pathOptions={{
+            color: location.color,
+            fillColor: location.color,
+            fillOpacity: 1,
+          }}
+        >
+          <Popup>
+            <div className="text-sm">
+              <h3 className="font-bold">{location.name}</h3>
 
-                <p>Magnitude: {earthquake?.Magnitude}</p>
-
-                <p>{earthquake?.Potensi}</p>
-              </div>
-            </Popup>
-          </Marker>
-        )}
-      </MapContainer>
-    </div>
+              <p>Status: {location.status}</p>
+            </div>
+          </Popup>
+        </CircleMarker>
+      ))}
+    </MapContainer>
   );
 }
