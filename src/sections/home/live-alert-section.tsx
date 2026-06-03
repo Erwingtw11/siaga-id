@@ -26,13 +26,18 @@ export default function LiveAlertSection() {
         {/* Panel Kanan Atas */}
         <div className="flex gap-4 bg-white/[0.01] border border-white/5 p-3 rounded-xl max-w-max">
           <div className="text-center px-1">
-            <span className="text-[9px] text-slate-500 font-bold uppercase block">Sistem</span>
+            <span className="text-[9px] text-slate-500 font-bold uppercase block">Sistem Aktif</span>
             <span className="text-xs font-black text-white block">24/7</span>
           </div>
           <div className="w-px bg-white/10 h-6 self-center" />
           <div className="text-center px-1">
-            <span className="text-[9px] text-slate-500 font-bold uppercase block">Alerts</span>
-            <span className="text-xs font-black text-white block">12 Live</span>
+            <span className="text-[9px] text-slate-500 font-bold uppercase block">Prioritas Hari Ini</span>
+            <span className="text-xs font-black text-white block">12 Alert</span>
+          </div>
+          <div className="w-px bg-white/10 h-6 self-center" />
+          <div className="text-center px-1">
+            <span className="text-[9px] text-slate-500 font-bold uppercase block">Sinkronisasi</span>
+            <span className="text-xs font-black text-cyan-400 block">BMKG Live</span>
           </div>
         </div>
       </div>
@@ -83,7 +88,7 @@ export default function LiveAlertSection() {
 
               <div className="flex justify-end text-[10px]">
                 <Link href="/dashboard" className="font-bold uppercase tracking-wider text-cyan-400 hover:text-cyan-300 transition-colors">
-                  Detail &rarr;
+                  Lihat Detail &rarr;
                 </Link>
               </div>
             </div>
@@ -91,6 +96,7 @@ export default function LiveAlertSection() {
           </div>
         ))}
       </div>
+      {/* DI SINI SUDAH BERSIH, TIDAK ADA TEKS NYASAR LAGI */}
     </div>
   );
 }

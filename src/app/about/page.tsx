@@ -37,24 +37,12 @@ import Container from "@/components/layout/container";
 const teamMembers = [
   {
     name: "Erwin Gutawa",
-    role: "Chief Executive Officer",
-    desc: "Visi teknologi mitigasi untuk keselamatan jutaan warga Indonesia.",
-    avatarIcon: Compass,
-    theme: "red",
-    socials: { linkedin: "#", github: "#", twitter: "#" }
-  },
-  {
-    name: "Alfito",
-    role: "Chief Technology Officer",
-    desc: "Arsitek sistem IoT & radar pendeteksi dini berbasis kecerdasan buatan.",
     avatarIcon: Terminal,
     theme: "cyan",
     socials: { linkedin: "#", github: "#", twitter: "#" }
   },
   {
     name: "Muhamad Afwan",
-    role: "Head of Disaster Education",
-    desc: "Pakar vulkanologi, mendedikasikan ilmu untuk sosialisasi & literasi bencana.",
     avatarIcon: BookOpen,
     theme: "amber",
     socials: { linkedin: "#", github: "#", twitter: "#" }
@@ -101,13 +89,13 @@ export default function AboutPage() {
       <Navbar />
 
       {/* Hero Section */}
+      {/* Hero Section */}
       <section className="relative overflow-hidden border-b border-white/5">
         <Container>
           <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[85vh] py-20">
 
             <div>
               <div className="inline-flex items-center gap-2 rounded-full border border-red-500/20 bg-red-500/10 px-4 py-2 text-red-400 text-sm font-semibold mb-6">
-                <Sparkles size={16} />
                 Platform Mitigasi Bencana Indonesia
               </div>
 
@@ -118,6 +106,8 @@ export default function AboutPage() {
                   Melindungi Setiap Jiwa
                 </span>
               </h1>
+
+              {/* ... sisa kode ke bawah tetap sama ... */}
 
               <p className="mt-6 text-slate-400 text-lg max-w-xl">
                 Sistem peringatan dini berbasis AI yang membantu masyarakat
@@ -262,7 +252,7 @@ export default function AboutPage() {
                 Menyatukan Inovasi Teknologi dan Literasi Kebencanaan
               </h2>
               <p className="text-slate-400 leading-relaxed text-base sm:text-lg">
-                Indonesia dikelilingi oleh cincin api pasifik (*ring of fire*). Kami percaya bahwa kesiapan menghadapi bencana bukan sekadar opsi, melainkan kebutuhan dasar.
+                Indonesia dikelilingi oleh cincin api pasifik (*ring of fire*). Kami believe bahwa kesiapan menghadapi bencana bukan sekadar opsi, melainkan kebutuhan dasar.
                 Nusa Alert lahir untuk memecahkan hambatan informasi dengan menyajikan peringatan dini yang sangat cepat, presisi, dan mudah dipahami oleh siapa saja.
               </p>
               <p className="text-slate-400 leading-relaxed">
@@ -371,21 +361,25 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
-      <section className="py-20">
-        <Container>
-          <div className="text-center max-w-2xl mx-auto space-y-4 mb-16">
-            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/15 bg-emerald-500/5 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-emerald-400">
+      {/* Team Section */}
+      <section className="py-20 w-full block clear-both text-center">
+        <div className="w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center">
+
+          {/* HEADER TIM - DIPAKSA TENGAH */}
+          <div className="w-full max-w-2xl mx-auto flex flex-col items-center justify-center text-center space-y-4 mb-16">
+            <div className="inline-block mx-auto rounded-full border border-emerald-500/15 bg-emerald-500/5 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-emerald-400">
               STRUKTUR TIM
             </div>
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl text-center w-full">
               Tokoh di Balik Layar
             </h2>
-            <p className="text-slate-400">
+            <p className="text-slate-400 text-center w-full">
               Tim profesional multi-disiplin berkomitmen menyebarkan rasa aman di seluruh penjuru negeri.
             </p>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {/* AREA KARTU TIM - DENGAN UTILITY COAK KIRI-KANAN SIMETRIS */}
+          <div className="w-full flex flex-row flex-wrap items-center justify-center gap-6 mx-auto text-center">
             {teamMembers.map((member, index) => {
               const AvatarIcon = member.avatarIcon;
               const themeColorMap = {
@@ -422,48 +416,41 @@ export default function AboutPage() {
                   whileInView={{ y: 0, opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`group relative overflow-hidden rounded-[28px] border border-white/[0.05] bg-gradient-to-b from-[#0F172A]/70 to-[#070b14]/90 p-6 transition-all duration-500 backdrop-blur-md ${themeColorMap.borderHover} ${themeColorMap.shadowHover}`}
+                  className={`group relative overflow-hidden rounded-[28px] border border-white/[0.05] bg-gradient-to-b from-[#0F172A]/70 to-[#070b14]/90 p-6 transition-all duration-500 backdrop-blur-md w-full sm:w-[280px] md:w-[300px] shrink-0 text-center flex flex-col items-center mx-auto sm:mx-0 ${themeColorMap.borderHover} ${themeColorMap.shadowHover}`}
                 >
                   {/* Card overlay glow */}
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0)_40%)] pointer-events-none" />
 
-                  <div className="flex flex-col items-center text-center">
-                    {/* Animated Avatar Box */}
-                    <div className="relative mb-6">
-                      <div className="absolute inset-0 rounded-3xl bg-white/5 blur-md group-hover:scale-110 transition-transform duration-500" />
-                      <div className={`relative flex h-24 w-24 items-center justify-center rounded-3xl border transition-all duration-500 group-hover:rotate-6 ${themeColorMap.avatarContainer}`}>
-                        <AvatarIcon size={44} className="stroke-[1.5]" />
-                      </div>
+                  {/* Animated Avatar Box */}
+                  <div className="relative mb-6">
+                    <div className="absolute inset-0 rounded-3xl bg-white/5 blur-md group-hover:scale-110 transition-transform duration-500" />
+                    <div className={`relative flex h-24 w-24 items-center justify-center rounded-3xl border transition-all duration-500 group-hover:rotate-6 ${themeColorMap.avatarContainer}`}>
+                      <AvatarIcon size={44} className="stroke-[1.5]" />
                     </div>
+                  </div>
 
-                    <h3 className="text-lg font-bold text-white group-hover:text-white/90 transition duration-300">
-                      {member.name}
-                    </h3>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mt-1">
-                      {member.role}
-                    </p>
-                    <p className="mt-4 text-xs leading-relaxed text-slate-400 max-w-[200px]">
-                      {member.desc}
-                    </p>
+                  <h3 className="text-lg font-bold text-white group-hover:text-white/90 transition duration-300">
+                    {member.name}
+                  </h3>
 
-                    {/* Social networks links */}
-                    <div className="mt-6 flex gap-4 border-t border-white/[0.06] pt-5 w-full justify-center">
-                      <a href={member.socials.linkedin} className={`text-slate-500 transition-colors duration-300 ${themeColorMap.socialHover}`}>
-                        <LinkedInIcon size={16} />
-                      </a>
-                      <a href={member.socials.github} className={`text-slate-500 transition-colors duration-300 ${themeColorMap.socialHover}`}>
-                        <GitHubIcon size={16} />
-                      </a>
-                      <a href={member.socials.twitter} className={`text-slate-500 transition-colors duration-300 ${themeColorMap.socialHover}`}>
-                        <Globe size={16} />
-                      </a>
-                    </div>
+                  {/* Social networks links */}
+                  <div className="mt-6 flex gap-4 border-t border-white/[0.06] pt-5 w-full justify-center">
+                    <a href={member.socials.linkedin} className={`text-slate-500 transition-colors duration-300 ${themeColorMap.socialHover}`}>
+                      <LinkedInIcon size={16} />
+                    </a>
+                    <a href={member.socials.github} className={`text-slate-500 transition-colors duration-300 ${themeColorMap.socialHover}`}>
+                      <GitHubIcon size={16} />
+                    </a>
+                    <a href={member.socials.twitter} className={`text-slate-500 transition-colors duration-300 ${themeColorMap.socialHover}`}>
+                      <Globe size={16} />
+                    </a>
                   </div>
                 </motion.div>
               );
             })}
           </div>
-        </Container>
+
+        </div>
       </section>
 
       <Footer />
