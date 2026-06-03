@@ -72,45 +72,47 @@ export default function TechSection() {
       {/* Background Ambient Glow */}
       <div className="absolute left-0 bottom-0 h-96 w-96 rounded-full bg-cyan-500/3 blur-[120px] pointer-events-none" />
 
-      <Container>
-        <div className="text-center space-y-4">
-          <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/15 bg-cyan-500/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.25em] text-cyan-400">
-            TEKNOLOGI YANG DIGUNAKAN
-          </div>
+       <Container>
+         <div className="text-center space-y-4">
+           <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/15 bg-cyan-500/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.25em] text-cyan-400">
+             TEKNOLOGI YANG DIGUNAKAN
+           </div>
 
-          <h2 className="mx-auto max-w-3xl text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-[2.6rem]">
-            Dibangun dengan Teknologi Modern & Handal
-          </h2>
-        </div>
+           <h2 className="mx-auto max-w-3xl text-[2.2rem] font-bold leading-tight text-white sm:text-3xl lg:text-[2.4rem]">
+             Dibangun dengan Teknologi Modern & Handal
+           </h2>
+         </div>
 
-        {/* Tech Cards Grid */}
-        <div className="mt-16 grid gap-5 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
-          {technologies.map((tech) => {
-            const Icon = tech.icon;
+         {/* Tech Cards Grid */}
+         <div className="mt-16 grid gap-6 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
+           {technologies.map((tech) => {
+             const Icon = tech.icon;
 
-            return (
-              <div
-                key={tech.name}
-                className={`group relative overflow-hidden rounded-[20px] border border-white/[0.05] bg-gradient-to-b from-[#0F172A]/40 to-[#070b14]/70 p-5 shadow-[0_10px_25px_rgba(0,0,0,0.25)] transition-all duration-300 hover:-translate-y-1 ${tech.color}`}
-              >
-                {/* Tech icon/emblem */}
-                <div className="flex justify-center">
-                  <Icon />
-                </div>
+             return (
+               <div
+                 key={tech.name}
+                 className={`group relative overflow-hidden rounded-[18px] border border-white/[0.06] bg-gradient-to-b from-[#0F172A]/50 to-[#070b14]/60 p-4 shadow-[0_8px_20px_rgba(0,0,0,0.2)] transition-all duration-300 hover:-translate-y-0.5 ${tech.color}`}
+               >
+                 {/* Tech icon/emblem */}
+                 <div className="flex justify-center mb-3">
+                   <div className={`flex h-10 w-10 items-center justify-center rounded-xl border ${tech.color.split(' ')[0]}`}>
+                     <Icon size={16} />
+                   </div>
+                 </div>
 
-                {/* Tech naming */}
-                <div className="mt-5 text-center min-w-0">
-                  <h4 className="text-sm font-bold text-white tracking-tight truncate">
-                    {tech.name}
-                  </h4>
-                  <p className="mt-1 text-[0.65rem] font-semibold text-slate-500 uppercase tracking-wider">
-                    {tech.category}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+                 {/* Tech naming */}
+                 <div className="text-center min-w-0">
+                   <h4 className="text-sm font-bold text-white tracking-tight">
+                     {tech.name}
+                   </h4>
+                   <p className="mt-1.5 text-[0.68rem] font-medium text-slate-400 uppercase tracking-wider">
+                     {tech.category}
+                   </p>
+                 </div>
+               </div>
+             );
+           })}
+         </div>
       </Container>
     </section>
   );

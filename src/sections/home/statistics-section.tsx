@@ -42,11 +42,11 @@ const statistics: Array<{
 
 export default function StatisticsSection() {
   return (
-    <section className="relative border-b border-white/5 bg-[#071120] py-10">
+    <section className="relative border-b border-white/5 bg-[#071120] py-10 lg:py-12">
       <div className="absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_center,rgba(0,209,255,0.04),transparent_65%)] pointer-events-none" />
 
-      <Container>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+       <Container>
+         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {statistics.map((item) => {
             const Icon = item.icon;
 
@@ -73,11 +73,11 @@ export default function StatisticsSection() {
               },
             }[item.theme];
 
-             return (
-               <div
-                 key={item.label}
-                 className="group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-gradient-to-b from-[#0F172A]/70 to-[#070b14]/90 p-4 shadow-[0_12px_30px_rgba(0,0,0,0.3)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/[0.12] hover:shadow-[0_18px_40px_rgba(0,0,0,0.4)]"
-               >
+              return (
+                <div
+                  key={item.label}
+                  className="group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-gradient-to-b from-[#0F172A]/70 to-[#070b14]/90 p-3 shadow-[0_12px_30px_rgba(0,0,0,0.3)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/[0.12] hover:shadow-[0_18px_40px_rgba(0,0,0,0.4)]"
+                >
                  {/* Subtle themed glow blur in top right */}
                  <div className={`absolute -right-6 -top-6 h-20 w-20 rounded-full blur-2xl transition-all duration-500 ${themeColors.glow}`} />
 

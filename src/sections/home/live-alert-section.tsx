@@ -76,9 +76,9 @@ function getStatusStyle(status: string) {
 
 export default function LiveAlertSection() {
   return (
-    <SectionWrapper>
-      <Container>
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-end">
+    <SectionWrapper className="overflow-hidden">
+       <Container>
+         <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start">
           <div>
             <div className="inline-flex items-center gap-3 rounded-full border border-cyan-400/15 bg-white/[0.04] px-4 py-2 text-[0.72rem] font-medium uppercase tracking-[0.24em] text-cyan-100/90 backdrop-blur-xl">
               <span className="relative flex h-2.5 w-2.5">
@@ -88,48 +88,48 @@ export default function LiveAlertSection() {
               Live Disaster Alerts
             </div>
 
-            <h2 className="mt-5 text-[2.2rem] font-bold leading-[1.08] tracking-tight text-white sm:text-4xl lg:text-[2.85rem] xl:text-[3.25rem]">
-              Realtime alert cards dengan hirarki prioritas yang lebih jelas.
-            </h2>
+             <h2 className="mt-4 text-[1.875rem] min-[375px]:text-[2.125rem] sm:text-[2.25rem] md:text-[2.5rem] lg:text-[2.75rem] xl:text-[3rem] font-bold leading-[1.08] tracking-tight text-white">
+               Realtime alert cards dengan hirarki prioritas yang lebih jelas.
+             </h2>
 
-            <p className="mt-4 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
-              Informasi kejadian terbaru dirangkum dalam kartu monitoring yang
-              lebih cepat dipindai, nyaman di mobile, dan tetap konsisten
-              dengan nuansa dashboard NUSA ALERT.
-            </p>
+             <p className="mt-4 max-w-lg text-[0.875rem] leading-relaxed text-slate-300 sm:text-sm sm:leading-6">
+               Informasi kejadian terbaru dirangkum dalam kartu monitoring yang
+               lebih cepat dipindai, nyaman di mobile, dan tetap konsisten
+               dengan nuansa dashboard NUSA ALERT.
+             </p>
           </div>
 
-          <div className="grid gap-3 sm:grid-cols-3">
-            <div className="rounded-[24px] border border-white/10 bg-white/[0.04] p-4 backdrop-blur-xl">
-              <p className="text-xs font-medium uppercase tracking-[0.2em] text-slate-400">
-                Sistem Aktif
-              </p>
-              <p className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-white">
-                24/7
-              </p>
-            </div>
+           <div className="grid gap-4 sm:grid-cols-3">
+             <div className="rounded-[20px] border border-white/10 bg-white/[0.04] p-3 backdrop-blur-xl">
+               <p className="text-xs font-medium uppercase tracking-[0.2em] text-slate-400">
+                 Sistem Aktif
+               </p>
+               <p className="mt-2 text-xl font-semibold tracking-[-0.04em] text-white">
+                 24/7
+               </p>
+             </div>
 
-            <div className="rounded-[24px] border border-white/10 bg-white/[0.04] p-4 backdrop-blur-xl">
-              <p className="text-xs font-medium uppercase tracking-[0.2em] text-slate-400">
-                Prioritas Hari Ini
-              </p>
-              <p className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-white">
-                12 Alert
-              </p>
-            </div>
+             <div className="rounded-[20px] border border-white/10 bg-white/[0.04] p-3 backdrop-blur-xl">
+               <p className="text-xs font-medium uppercase tracking-[0.2em] text-slate-400">
+                 Prioritas Hari Ini
+               </p>
+               <p className="mt-2 text-xl font-semibold tracking-[-0.04em] text-white">
+                 12 Alert
+               </p>
+             </div>
 
-            <div className="rounded-[24px] border border-white/10 bg-white/[0.04] p-4 backdrop-blur-xl">
-              <p className="text-xs font-medium uppercase tracking-[0.2em] text-slate-400">
-                Sinkronisasi
-              </p>
-              <p className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-cyan-300">
-                BMKG Live
-              </p>
-            </div>
+             <div className="rounded-[20px] border border-white/10 bg-white/[0.04] p-3 backdrop-blur-xl">
+               <p className="text-xs font-medium uppercase tracking-[0.2em] text-slate-400">
+                 Sinkronisasi
+               </p>
+               <p className="mt-2 text-xl font-semibold tracking-[-0.04em] text-cyan-300">
+                 BMKG Live
+               </p>
+             </div>
           </div>
         </div>
 
-        <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+         <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {alerts.map((alert, index) => {
             const statusStyle = getStatusStyle(alert.status);
 
@@ -143,8 +143,8 @@ export default function LiveAlertSection() {
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0)_22%)]" />
 
-                 <div className="relative flex h-full min-h-[300px] flex-col">
-                   <div className="flex flex-wrap items-start justify-between gap-4">
+                  <div className="relative flex h-full min-h-[260px] flex-col">
+                    <div className="flex flex-wrap items-start justify-between gap-3">
                     <div className="flex items-center gap-3">
                       <div
                         className={`flex h-12 w-12 items-center justify-center rounded-2xl border bg-white/[0.04] ${statusStyle.ring}`}
@@ -162,38 +162,38 @@ export default function LiveAlertSection() {
                       </div>
                     </div>
 
-                    <div
-                      className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-semibold ${statusStyle.badge}`}
-                    >
-                      <span className={`h-2 w-2 rounded-full ${statusStyle.dot}`} />
-                      {alert.status}
-                    </div>
+                     <div
+                       className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-semibold ${statusStyle.badge}`}
+                     >
+                       <span className={`h-2 w-2 rounded-full ${statusStyle.dot}`} />
+                       {alert.status}
+                     </div>
                   </div>
 
                    <div className="mt-8 flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
                     <div className="min-w-0">
-                      <p className="flex items-center gap-2 text-sm text-slate-400">
-                        <MapPin size={15} className="text-cyan-300" />
-                        Lokasi Prioritas
-                      </p>
+                       <p className="flex items-center gap-2 text-sm text-slate-400">
+                         <MapPin size={14} className="text-cyan-300" />
+                         Lokasi Prioritas
+                       </p>
 
-                      <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-white sm:text-[2rem]">
-                        {alert.location}
-                      </h3>
+                       <h3 className="mt-3 text-xl font-semibold tracking-[-0.04em] text-white sm:text-[1.75rem]">
+                         {alert.location}
+                       </h3>
 
-                      <p className="mt-3 max-w-xl text-sm leading-6 text-slate-300 sm:text-[0.98rem]">
-                        {alert.detail}
-                      </p>
+                       <p className="mt-2 max-w-lg text-sm leading-5 text-slate-300">
+                         {alert.detail}
+                       </p>
                     </div>
 
-                    <div className="shrink-0 sm:text-right">
-                      <p className="text-xs uppercase tracking-[0.2em] text-slate-400">
-                        Magnitude
-                      </p>
-                      <p className="mt-2 text-4xl font-semibold tracking-[-0.05em] text-white sm:text-[3.2rem]">
-                        {alert.magnitude}
-                      </p>
-                    </div>
+                     <div className="shrink-0 sm:text-right">
+                       <p className="text-xs uppercase tracking-[0.2em] text-slate-400">
+                         Magnitude
+                       </p>
+                       <p className="mt-1 text-3xl font-semibold tracking-[-0.05em] text-white sm:text-[2.5rem]">
+                         {alert.magnitude}
+                       </p>
+                     </div>
                   </div>
 
                    <div className="mt-8 grid gap-4 sm:grid-cols-3">
