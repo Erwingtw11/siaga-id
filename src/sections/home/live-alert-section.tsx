@@ -1,253 +1,96 @@
-import {
-  AlertTriangle,
-  ArrowUpRight,
-  Clock3,
-  MapPin,
-  ShieldAlert,
-  Waves,
-} from "lucide-react";
+"use client";
 
-import Container from "@/components/layout/container";
-import SectionWrapper from "@/components/layout/section-wrapper";
-import BaseCard from "@/components/cards/base-card";
-
-const alerts = [
-  {
-    location: "Lampung Selatan",
-    magnitude: "5.8",
-    status: "Siaga",
-    time: "10 menit lalu",
-    depth: "14 Km",
-    detail: "Aktivitas gempa pesisir terpantau dengan getaran sedang.",
-    response: "12 sensor aktif",
-  },
-  {
-    location: "Bandung",
-    magnitude: "4.9",
-    status: "Waspada",
-    time: "25 menit lalu",
-    depth: "8 Km",
-    detail: "Getaran ringan terdeteksi, sistem notifikasi tetap siaga.",
-    response: "Update monitoring",
-  },
-  {
-    location: "Aceh",
-    magnitude: "6.2",
-    status: "Awas",
-    time: "40 menit lalu",
-    depth: "18 Km",
-    detail: "Pusat monitoring menandai prioritas tinggi untuk evaluasi cepat.",
-    response: "Respon darurat",
-  },
-];
-
-function getStatusStyle(status: string) {
-  if (status === "Awas") {
-    return {
-      badge:
-        "border-red-400/20 bg-red-500/12 text-red-200 shadow-[0_0_25px_rgba(255,77,77,0.14)]",
-      dot: "bg-[#FF4D4D]",
-      glow: "bg-red-500/16",
-      metric: "text-red-300",
-      ring: "border-red-400/15",
-    };
-  }
-
-  if (status === "Siaga") {
-    return {
-      badge:
-        "border-orange-400/20 bg-orange-500/12 text-orange-200 shadow-[0_0_25px_rgba(251,146,60,0.12)]",
-      dot: "bg-orange-400",
-      glow: "bg-orange-500/14",
-      metric: "text-orange-200",
-      ring: "border-orange-400/15",
-    };
-  }
-
-  return {
-    badge:
-      "border-yellow-400/20 bg-yellow-500/12 text-yellow-100 shadow-[0_0_25px_rgba(250,204,21,0.1)]",
-    dot: "bg-yellow-300",
-    glow: "bg-yellow-500/12",
-    metric: "text-yellow-100",
-    ring: "border-yellow-400/15",
-  };
-}
+import Link from "next/link";
+import { AlertTriangle } from "lucide-react";
 
 export default function LiveAlertSection() {
+  const alerts = [
+    { lokasi: "Lampung Selatan", mag: "5.8", waktu: "10 mnt lalu", dalam: "14 Km", status: "Siaga", bg: "bg-orange-500/10 border-orange-500/20 text-orange-400", dot: "bg-orange-500" },
+    { lokasi: "Bandung", mag: "4.9", waktu: "25 mnt lalu", dalam: "8 Km", status: "Waspada", bg: "bg-yellow-500/10 border-yellow-500/20 text-yellow-400", dot: "bg-yellow-500" },
+    { lokasi: "Aceh", mag: "6.2", waktu: "40 mnt lalu", dalam: "22 Km", status: "Awas", bg: "bg-red-500/10 border-red-500/20 text-red-400", dot: "bg-red-500" },
+  ];
+
   return (
-    <SectionWrapper className="overflow-hidden">
-       <Container>
-         <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start">
-          <div>
-            <div className="inline-flex items-center gap-3 rounded-full border border-cyan-400/15 bg-white/[0.04] px-4 py-2 text-[0.72rem] font-medium uppercase tracking-[0.24em] text-cyan-100/90 backdrop-blur-xl">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00D1FF]/60" />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#00D1FF]" />
-              </span>
-              Live Disaster Alerts
+    <div className="space-y-6 py-2 w-full">
+      {/* Header Section */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/5 pb-4">
+        <div className="space-y-1">
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-400 block">
+            Live Disaster Alerts
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+            Hierarki Prioritas Jelas
+          </h2>
+        </div>
+
+        {/* Panel Kanan Atas */}
+        <div className="flex gap-4 bg-white/[0.01] border border-white/5 p-3 rounded-xl max-w-max">
+          <div className="text-center px-1">
+            <span className="text-[9px] text-slate-500 font-bold uppercase block">Sistem</span>
+            <span className="text-xs font-black text-white block">24/7</span>
+          </div>
+          <div className="w-px bg-white/10 h-6 self-center" />
+          <div className="text-center px-1">
+            <span className="text-[9px] text-slate-500 font-bold uppercase block">Alerts</span>
+            <span className="text-xs font-black text-white block">12 Live</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Grid Kartu Tiga Kolom */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {alerts.map((item, idx) => (
+          <div key={idx} className="bg-white/[0.01] border border-white/5 rounded-xl p-5 flex flex-col justify-between h-auto shadow-lg backdrop-blur-sm hover:border-white/10 transition-all space-y-5">
+
+            <div className="space-y-4">
+              <div className="flex justify-between items-center border-b border-white/5 pb-2.5">
+                <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1">
+                  <AlertTriangle size={12} /> {item.waktu}
+                </span>
+                <span className={`text-[9px] font-black uppercase tracking-wider border px-2 py-0.5 rounded ${item.bg}`}>
+                  <span className={`inline-block h-1 w-1 rounded-full mr-1 ${item.dot}`} />
+                  {item.status}
+                </span>
+              </div>
+
+              <div className="flex justify-between items-start gap-4">
+                <div className="space-y-0.5">
+                  <span className="text-[9px] font-bold text-cyan-400 uppercase tracking-widest block">Lokasi Prioritas</span>
+                  <h3 className="text-lg font-black text-white tracking-tight">{item.lokasi}</h3>
+                </div>
+                <div className="text-right">
+                  <span className="text-[9px] font-bold text-slate-500 uppercase block">MAG</span>
+                  <span className="text-xl font-black text-white block leading-none mt-0.5">{item.mag}</span>
+                </div>
+              </div>
             </div>
 
-             <h2 className="mt-4 text-[1.875rem] min-[375px]:text-[2.125rem] sm:text-[2.25rem] md:text-[2.5rem] lg:text-[2.75rem] xl:text-[3rem] font-bold leading-[1.08] tracking-tight text-white">
-               Realtime alert cards dengan hirarki prioritas yang lebih jelas.
-             </h2>
-
-             <p className="mt-4 max-w-lg text-[0.875rem] leading-relaxed text-slate-300 sm:text-sm sm:leading-6">
-               Informasi kejadian terbaru dirangkum dalam kartu monitoring yang
-               lebih cepat dipindai, nyaman di mobile, dan tetap konsisten
-               dengan nuansa dashboard NUSA ALERT.
-             </p>
-          </div>
-
-           <div className="grid gap-4 sm:grid-cols-3">
-             <div className="rounded-[20px] border border-white/10 bg-white/[0.04] p-3 backdrop-blur-xl">
-               <p className="text-xs font-medium uppercase tracking-[0.2em] text-slate-400">
-                 Sistem Aktif
-               </p>
-               <p className="mt-2 text-xl font-semibold tracking-[-0.04em] text-white">
-                 24/7
-               </p>
-             </div>
-
-             <div className="rounded-[20px] border border-white/10 bg-white/[0.04] p-3 backdrop-blur-xl">
-               <p className="text-xs font-medium uppercase tracking-[0.2em] text-slate-400">
-                 Prioritas Hari Ini
-               </p>
-               <p className="mt-2 text-xl font-semibold tracking-[-0.04em] text-white">
-                 12 Alert
-               </p>
-             </div>
-
-             <div className="rounded-[20px] border border-white/10 bg-white/[0.04] p-3 backdrop-blur-xl">
-               <p className="text-xs font-medium uppercase tracking-[0.2em] text-slate-400">
-                 Sinkronisasi
-               </p>
-               <p className="mt-2 text-xl font-semibold tracking-[-0.04em] text-cyan-300">
-                 BMKG Live
-               </p>
-             </div>
-          </div>
-        </div>
-
-         <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {alerts.map((alert, index) => {
-            const statusStyle = getStatusStyle(alert.status);
-
-            return (
-              <BaseCard
-                key={alert.location}
-                className={index === 0 ? "md:col-span-2 xl:col-span-2" : ""}
-              >
-                <div
-                  className={`absolute right-0 top-0 h-28 w-28 rounded-full blur-3xl ${statusStyle.glow}`}
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0)_22%)]" />
-
-                  <div className="relative flex h-full min-h-[260px] flex-col">
-                    <div className="flex flex-wrap items-start justify-between gap-3">
-                    <div className="flex items-center gap-3">
-                      <div
-                        className={`flex h-12 w-12 items-center justify-center rounded-2xl border bg-white/[0.04] ${statusStyle.ring}`}
-                      >
-                        <AlertTriangle size={20} className={statusStyle.metric} />
-                      </div>
-
-                      <div>
-                        <p className="text-xs font-medium uppercase tracking-[0.22em] text-slate-400">
-                          Live Alert
-                        </p>
-                        <p className="mt-1 text-sm text-slate-300">
-                          {alert.time}
-                        </p>
-                      </div>
-                    </div>
-
-                     <div
-                       className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-semibold ${statusStyle.badge}`}
-                     >
-                       <span className={`h-2 w-2 rounded-full ${statusStyle.dot}`} />
-                       {alert.status}
-                     </div>
-                  </div>
-
-                   <div className="mt-8 flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
-                    <div className="min-w-0">
-                       <p className="flex items-center gap-2 text-sm text-slate-400">
-                         <MapPin size={14} className="text-cyan-300" />
-                         Lokasi Prioritas
-                       </p>
-
-                       <h3 className="mt-3 text-xl font-semibold tracking-[-0.04em] text-white sm:text-[1.75rem]">
-                         {alert.location}
-                       </h3>
-
-                       <p className="mt-2 max-w-lg text-sm leading-5 text-slate-300">
-                         {alert.detail}
-                       </p>
-                    </div>
-
-                     <div className="shrink-0 sm:text-right">
-                       <p className="text-xs uppercase tracking-[0.2em] text-slate-400">
-                         Magnitude
-                       </p>
-                       <p className="mt-1 text-3xl font-semibold tracking-[-0.05em] text-white sm:text-[2.5rem]">
-                         {alert.magnitude}
-                       </p>
-                     </div>
-                  </div>
-
-                   <div className="mt-8 grid gap-4 sm:grid-cols-3">
-                    <div className="rounded-[20px] border border-white/10 bg-white/[0.04] p-4">
-                      <p className="flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-slate-400">
-                        <Waves size={14} className="text-cyan-300" />
-                        Kedalaman
-                      </p>
-                      <p className="mt-3 text-lg font-semibold text-white">
-                        {alert.depth}
-                      </p>
-                    </div>
-
-                    <div className="rounded-[20px] border border-white/10 bg-white/[0.04] p-4">
-                      <p className="flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-slate-400">
-                        <Clock3 size={14} className="text-cyan-300" />
-                        Update
-                      </p>
-                      <p className="mt-3 text-lg font-semibold text-white">
-                        {alert.time}
-                      </p>
-                    </div>
-
-                    <div className="rounded-[20px] border border-white/10 bg-white/[0.04] p-4">
-                      <p className="flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-slate-400">
-                        <ShieldAlert size={14} className="text-cyan-300" />
-                        Respon
-                      </p>
-                      <p className="mt-3 text-lg font-semibold text-white">
-                        {alert.response}
-                      </p>
-                    </div>
-                  </div>
-
-                   <div className="mt-auto flex flex-col items-start gap-6 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
-                    <p className="max-w-xl text-sm text-slate-400">
-                      Pemantauan otomatis tetap berjalan pada tingkat{" "}
-                      <span className={`font-medium ${statusStyle.metric}`}>
-                        {alert.status.toLowerCase()}
-                      </span>
-                      .
-                    </p>
-
-                    <div className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-200 transition duration-300 group-hover:translate-x-0.5">
-                      Lihat detail
-                      <ArrowUpRight size={16} />
-                    </div>
-                  </div>
+            <div className="pt-3 border-t border-white/5 space-y-3">
+              <div className="grid grid-cols-3 gap-1.5 bg-white/[0.01] border border-white/5 p-2 rounded-lg text-center">
+                <div>
+                  <span className="text-[8px] text-slate-500 font-medium block uppercase">Kedalaman</span>
+                  <span className="text-[11px] font-bold text-slate-300 block">{item.dalam}</span>
                 </div>
-              </BaseCard>
-            );
-          })}
-        </div>
-      </Container>
-    </SectionWrapper>
+                <div className="border-x border-white/5">
+                  <span className="text-[8px] text-slate-500 font-medium block uppercase">Status</span>
+                  <span className="text-[11px] font-bold text-slate-300 block">Live</span>
+                </div>
+                <div>
+                  <span className="text-[8px] text-slate-500 font-medium block uppercase">Respon</span>
+                  <span className="text-[11px] font-bold text-cyan-400 block">Aktif</span>
+                </div>
+              </div>
+
+              <div className="flex justify-end text-[10px]">
+                <Link href="/dashboard" className="font-bold uppercase tracking-wider text-cyan-400 hover:text-cyan-300 transition-colors">
+                  Detail &rarr;
+                </Link>
+              </div>
+            </div>
+
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }

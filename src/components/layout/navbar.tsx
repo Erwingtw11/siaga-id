@@ -2,35 +2,35 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation"; // <── Tambah ini untuk deteksi halaman aktif
+import { usePathname } from "next/navigation";
 import { Menu, X, Bell, AlertTriangle } from "lucide-react";
 
 import Container from "./container";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const pathname = usePathname(); // <── Ambil rute url aktif saat ini
+  const pathname = usePathname();
 
-  // Data navigasi agar lebih rapi dan tidak duplikasi kode
   const navLinks = [
     { name: "Beranda", href: "/" },
     { name: "Peta Bencana", href: "/dashboard" },
-    { name: "Informasi", href: "/informasi" }, // <── FIXED: Mengarah ke /informasi, bukan # lagi
+    { name: "Informasi", href: "/informasi" },
     { name: "Panduan", href: "/panduan" },
     { name: "Tentang Kami", href: "/about" },
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#071120]/80 backdrop-blur-md">
+    <header className="sticky top-0 left-0 right-0 z-50 border-b border-white/5 bg-[#030712]/85 backdrop-blur-xl">
       <Container>
         <div className="flex h-16 items-center justify-between gap-3">
+
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 no-underline cursor-pointer">
-            <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-red-500/10 border border-red-500/20 text-red-500 shadow-[0_0_12px_rgba(239,68,68,0.15)]">
-              <AlertTriangle size={16} className="fill-red-500/20" />
+          <Link href="/" className="flex items-center gap-2 no-underline cursor-pointer group">
+            <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-red-500/10 border border-red-500/20 text-red-500 shadow-[0_0_12px_rgba(239,68,68,0.1)] group-hover:scale-105 transition-transform duration-200">
+              <AlertTriangle size={15} className="fill-red-500/10 animate-pulse" />
             </div>
-            <h1 className="text-base font-bold tracking-wider text-white sm:text-sm uppercase flex items-center">
-              NUSA<span className="text-red-500 ml-0.5">ALERT</span>
+            <h1 className="text-sm font-black tracking-wider text-white uppercase m-0 flex items-center">
+              NUSA<span className="text-red-500 ml-0.5 font-black">ALERT</span>
             </h1>
           </Link>
 
@@ -42,52 +42,58 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative text-[0.86rem] font-medium transition cursor-pointer no-underline ${isActive
-                      ? "text-white after:absolute after:bottom-[-18px] after:left-0 after:h-[1.5px] after:w-full after:bg-red-500 after:content-['']"
-                      : "text-white/70 hover:text-white"
+                  className={`relative text-xs font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer no-underline pb-1 ${isActive
+                    ? "text-red-400 font-extrabold"
+                    : "text-slate-400 hover:text-white"
                     }`}
                 >
                   {link.name}
+                  {isActive && (
+                    <span className="absolute bottom-[-22px] left-0 h-[2px] w-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.6)]" />
+                  )}
                 </Link>
               );
             })}
           </nav>
 
           {/* Desktop Actions */}
-          <div className="hidden items-center gap-4 md:flex">
-            <button className="relative flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.025] text-slate-300 hover:text-white transition duration-300 cursor-pointer">
-              <Bell size={16} />
-              <span className="absolute right-2 top-2 h-1.5 w-1.5 rounded-full bg-red-500 shadow-[0_0_6px_rgba(239,68,68,0.6)] animate-pulse" />
+          <div className="hidden items-center gap-3.5 md:flex">
+            {/* Bell Icon Button */}
+            <button className="relative flex h-9 w-9 items-center justify-center rounded-xl border border-slate-900 bg-slate-950/40 text-slate-400 hover:text-white hover:border-slate-800 transition duration-200 cursor-pointer">
+              <Bell size={15} />
+              <span className="absolute right-2.5 top-2.5 h-1.5 w-1.5 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)] animate-pulse" />
             </button>
 
-            <Link
-              href="#cta"
-              className="rounded-full bg-red-500 px-4 py-2 text-[0.82rem] font-medium uppercase tracking-[0.04em] text-white shadow-[0_3px_10px_rgba(239,68,68,0.2)] transition duration-300 hover:-translate-y-0.5 hover:bg-red-400 hover:shadow-[0_4px_12px_rgba(239,68,68,0.25)] no-underline cursor-pointer"
-            >
-              Aktifkan Notifikasi
-            </Link>
+            {/* BARU: RE-DESIGNED NOTIFICATION BUTTON (HIGH-END MINIMALIST) */}
+            <button className="relative inline-flex items-center gap-2 rounded-xl bg-red-500/10 border border-red-500/20 px-3.5 py-2 text-[11px] font-black uppercase tracking-wider text-red-400 transition-all duration-200 hover:bg-red-500/20 hover:border-red-500/40 hover:text-red-300 active:scale-95 cursor-pointer">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-red-500" />
+              </span>
+              <span>Aktifkan Notifikasi</span>
+            </button>
           </div>
 
           {/* Mobile Right Controls */}
-          <div className="flex items-center gap-3 md:hidden">
-            <button className="relative flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-slate-300">
-              <Bell size={16} />
-              <span className="absolute right-2 top-2 h-1.5 w-1.5 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)]" />
+          <div className="flex items-center gap-2.5 md:hidden">
+            <button className="relative flex h-9 w-9 items-center justify-center rounded-xl border border-slate-900 bg-slate-950/40 text-slate-400">
+              <Bell size={15} />
+              <span className="absolute right-2.5 top-2.5 h-1.5 w-1.5 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)]" />
             </button>
 
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/[0.02] text-white cursor-pointer"
+              className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-900 bg-slate-950/40 text-white cursor-pointer"
             >
-              {isOpen ? <X size={20} /> : <Menu size={20} />}
+              {isOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="border-t border-white/10 py-5 md:hidden">
-            <nav className="flex flex-col gap-4">
+          <div className="border-t border-slate-900/60 py-4 md:hidden animate-in fade-in slide-in-from-top-2 duration-200">
+            <nav className="flex flex-col gap-3.5">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
                 return (
@@ -95,7 +101,7 @@ export default function Navbar() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className={`text-sm font-semibold no-underline transition cursor-pointer ${isActive ? "text-white" : "text-white/70 hover:text-white"
+                    className={`text-xs font-bold uppercase tracking-wider no-underline transition py-1 ${isActive ? "text-red-400 font-extrabold" : "text-slate-400 hover:text-white"
                       }`}
                   >
                     {link.name}
@@ -103,13 +109,13 @@ export default function Navbar() {
                 );
               })}
 
-              <Link
-                href="#cta"
-                className="mt-2 text-center rounded-full bg-red-500 px-4 py-3 text-xs font-bold uppercase tracking-[0.05em] text-white no-underline shadow-[0_4px_15px_rgba(239,68,68,0.25)] transition duration-300 cursor-pointer"
+              <button
+                className="mt-2 text-center w-full inline-flex items-center justify-center gap-2 rounded-xl bg-red-500/10 border border-red-500/20 py-2.5 text-[11px] font-black uppercase tracking-wider text-red-400 cursor-pointer"
                 onClick={() => setIsOpen(false)}
               >
+                <span className="h-1.5 w-1.5 rounded-full bg-red-500 animate-pulse" />
                 Aktifkan Notifikasi
-              </Link>
+              </button>
             </nav>
           </div>
         )}

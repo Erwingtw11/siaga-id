@@ -1,64 +1,68 @@
-import { Bell, ArrowRight } from "lucide-react";
+"use client";
 
-import Container from "@/components/layout/container";
+import { Bell } from "lucide-react";
 
-export default function CTASection() {
+export default function CtaSection() {
   return (
-     <section id="cta" className="relative py-16 lg:py-20 overflow-hidden bg-[#071120]">
-       <Container>
-         <div className="group relative overflow-hidden rounded-[20px] border border-red-500/18 bg-gradient-to-r from-[#1E1114]/95 via-[#0B0D14]/98 to-[#0F172A]/90 p-6 md:p-8 shadow-[0_16px_40px_rgba(239,68,68,0.06)]">
-           {/* Glowing Blobs */}
-           <div className="absolute left-8 top-1/2 -translate-y-1/2 h-48 w-48 rounded-full bg-red-500/8 blur-[64px] pointer-events-none" />
-           <div className="absolute right-8 top-1/2 -translate-y-1/2 h-48 w-48 rounded-full bg-cyan-500/6 blur-[64px] pointer-events-none" />
+    // Mengurangi padding luar atas-bawah agar jarak antar-seksi lebih padat dan pas
+    <div className="w-full bg-[#04080f]" style={{ paddingTop: '60px', paddingBottom: '60px' }}>
 
-           {/* Seismic Wave SVG Overlay */}
-           <div className="absolute inset-y-0 right-[22%] left-[33%] opacity-15 pointer-events-none hidden md:block">
-             <svg className="h-full w-full" viewBox="0 0 400 100" preserveAspectRatio="none">
-               <path
-                 d="M0,50 L80,50 L90,45 L100,55 L110,35 L120,65 L130,10 L140,90 L150,40 L160,60 L170,50 L250,50 L260,40 L270,60 L280,30 L290,70 L300,50 L400,50"
-                 fill="none"
-                 stroke="url(#seismic-grad)"
-                 strokeWidth="1.5"
-               />
-               <defs>
-                 <linearGradient id="seismic-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                   <stop offset="0%" stopColor="#ff4d4d" stopOpacity="0.35" />
-                   <stop offset="50%" stopColor="#ff4d4d" stopOpacity="0.9" />
-                   <stop offset="100%" stopColor="#00d1ff" stopOpacity="0.35" />
-                 </linearGradient>
-               </defs>
-             </svg>
-           </div>
+      {/* 1. MENGUBAH LEBAR KOTAK UTAMA AGAR SEJAJAR DENGAN LAYOUT ATAS & BAWAHNYA */}
+      <div className="mx-auto w-full max-w-[1400px] px-6 md:px-12">
 
-           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
-             {/* Left Column (Bell Icon & Text) */}
-             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left max-w-lg">
-               {/* Glowing Bell Icon Container */}
-               <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-[18px] bg-red-500/8 border border-red-500/25 text-red-400 shadow-[0_0_16px_rgba(239,68,68,0.2)] animate-pulse">
-                 <Bell size={22} className="fill-red-500/10" />
-               </div>
+        {/* ── SPANDUK CTA ── */}
+        <div
+          className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-slate-950 via-red-950/15 to-slate-950 shadow-2xl"
+          style={{
+            paddingTop: '32px',    // Padding vertikal dibuat ringkas & slim
+            paddingBottom: '32px',
+            paddingLeft: '40px',   // Menjaga teks tetap aman di dalam grid luar
+            paddingRight: '40px'
+          }}
+        >
 
-               <div>
-                 <h3 className="text-[1.8rem] font-bold tracking-tight text-white sm:text-[2.2rem] leading-snug">
-                   Aktifkan Notifikasi Sekarang
-                 </h3>
-                 <p className="mt-2.5 text-[0.88rem] leading-relaxed text-slate-300">
-                   Jangan lewatkan informasi penting untuk keselamatan Anda dan keluarga.
-                 </p>
-               </div>
-             </div>
+          {/* Background Pulse Effect */}
+          <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,rgba(239,68,68,0.2),transparent_70%)] flex items-center justify-center">
+            <svg width="100%" height="100" viewBox="0 0 1000 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="stroke-red-500 stroke-2">
+              <path d="M0 50H400L415 20L430 80L445 40L460 60L475 50H1000" />
+            </svg>
+          </div>
 
-             {/* Right Column (White Button) */}
-             <div className="shrink-0 w-full sm:w-auto">
-               <button className="group/btn inline-flex min-h-11 w-full sm:w-auto items-center justify-center gap-1.5 rounded-[18px] bg-white px-6 py-3 text-[0.88rem] font-medium text-slate-900 shadow-[0_8px_20px_rgba(255,255,255,0.12)] transition duration-300 hover:-translate-y-0.5 hover:bg-slate-50 hover:shadow-[0_12px_28px_rgba(255,255,255,0.18)]">
-                 Aktifkan Sekarang
-                 <ArrowRight size={14} className="transition-transform duration-300 group-hover/btn:translate-x-0.5" />
-               </button>
-             </div>
-           </div>
-         </div>
-       </Container>
-    </section>
+          {/* Konten Utama */}
+          <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between" style={{ gap: '32px' }}>
+
+            {/* Sisi Kiri: Ikon & Teks Info */}
+            {/* 2. max-w Diperluas ke 4xl agar teks deskripsi memanjang mengisi ruang kosong */}
+            <div className="flex flex-col sm:flex-row items-start max-w-4xl w-full" style={{ gap: '20px' }}>
+
+              {/* Box Ikon Bel */}
+              <div className="h-11 w-11 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center shrink-0 text-red-500 shadow-lg shadow-red-500/5">
+                <Bell size={18} />
+              </div>
+
+              {/* Jarak teks judul dan deskripsi */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                <h3 className="text-xl md:text-2xl font-black text-white tracking-tight" style={{ lineHeight: '1.2' }}>
+                  Aktifkan Notifikasi Sekarang
+                </h3>
+                <p className="text-sm text-slate-400" style={{ lineHeight: '1.5' }}>
+                  Jangan lewatkan informasi penting untuk keselamatan Anda dan keluarga. Dapatkan alert langsung ke perangkat Anda secara realtime.
+                </p>
+              </div>
+            </div>
+
+            {/* Sisi Kanan: Tombol Putih Proporsional */}
+            <button
+              className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-white text-xs font-bold text-slate-950 shadow-md hover:bg-slate-100 transition-all shrink-0 self-start lg:self-center"
+              style={{ paddingLeft: '24px', paddingRight: '24px' }}
+            >
+              Aktifkan Sekarang <span className="text-sm">&rarr;</span>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
   );
 }
-
