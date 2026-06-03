@@ -184,54 +184,37 @@ export default function GuidePage() {
         </Container>
       </section>
 
-      {/* ── Section Alur Kerja (6 Langkah Mudah Memulai) ─────────────────────────── */}
-      <section className="py-16 w-full">
-        <Container>
-          <div className="flex flex-col items-center justify-center w-full text-center mb-12">
-            <span className="inline-flex items-center rounded-full border border-slate-800 bg-slate-900 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-3 mx-auto">
-              Alur Kerja
-            </span>
-            <h2 className="text-3xl font-black tracking-tight text-white text-center mx-auto max-w-xl">
-              6 Langkah Mudah Memulai
-            </h2>
-            <p className="text-slate-400 text-sm mt-2 text-center mx-auto max-w-md">
-              Ikuti alur konfigurasi berikut untuk memaksimalkan proteksi kebencanaan Anda.
-            </p>
-          </div>
-
-          {/* ... Sisa kode grid 6 langkah Anda di bawahnya tetap biarkan ... */}
-        </Container>
-      </section>
-
       {/* ── Steps Section ────────────────────────────────────────────────── */}
       <section className="py-24 border-b border-slate-900 z-10 relative">
         <Container>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={stagger}
-            className="text-center max-w-2xl mx-auto mb-16"
-          >
-            <motion.span
-              variants={fadeUp}
-              className="inline-flex items-center rounded-full border border-slate-800 bg-slate-900 px-3 py-1 text-xs font-medium uppercase tracking-widest text-slate-400"
+          <div className="w-full flex flex-col items-center justify-center text-center mb-16">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={stagger}
+              className="flex flex-col items-center text-center max-w-2xl w-full"
             >
-              Alur Kerja
-            </motion.span>
-            <motion.h2
-              variants={fadeUp}
-              className="mt-4 text-3xl sm:text-4xl font-bold tracking-tight text-white"
-            >
-              6 Langkah Mudah Memulai
-            </motion.h2>
-            <motion.p
-              variants={fadeUp}
-              className="mt-3 text-slate-400 text-sm sm:text-base leading-relaxed"
-            >
-              Ikuti alur konfigurasi berikut untuk memaksimalkan proteksi kebencanaan Anda.
-            </motion.p>
-          </motion.div>
+              <motion.span
+                variants={fadeUp}
+                className="inline-flex items-center rounded-full border border-slate-800 bg-slate-900 px-3 py-1 text-xs font-medium uppercase tracking-widest text-slate-400"
+              >
+                Alur Kerja
+              </motion.span>
+              <motion.h2
+                variants={fadeUp}
+                className="mt-4 text-3xl sm:text-4xl font-bold tracking-tight text-white"
+              >
+                6 Langkah Mudah Memulai
+              </motion.h2>
+              <motion.p
+                variants={fadeUp}
+                className="mt-3 text-slate-400 text-sm sm:text-base leading-relaxed"
+              >
+                Ikuti alur konfigurasi berikut untuk memaksimalkan proteksi kebencanaan Anda.
+              </motion.p>
+            </motion.div>
+          </div>
 
           {/* Steps Grid */}
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
