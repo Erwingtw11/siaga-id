@@ -85,7 +85,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/panduan"
                   className="hover:text-white no-underline transition"
                 >
                   Panduan
