@@ -89,13 +89,13 @@ export default function AboutPage() {
       <Navbar />
 
       {/* Hero Section */}
+      {/* Hero Section */}
       <section className="relative overflow-hidden border-b border-white/5">
         <Container>
           <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[85vh] py-20">
 
             <div>
               <div className="inline-flex items-center gap-2 rounded-full border border-red-500/20 bg-red-500/10 px-4 py-2 text-red-400 text-sm font-semibold mb-6">
-                <Sparkles size={16} />
                 Platform Mitigasi Bencana Indonesia
               </div>
 
@@ -106,6 +106,8 @@ export default function AboutPage() {
                   Melindungi Setiap Jiwa
                 </span>
               </h1>
+
+              {/* ... sisa kode ke bawah tetap sama ... */}
 
               <p className="mt-6 text-slate-400 text-lg max-w-xl">
                 Sistem peringatan dini berbasis AI yang membantu masyarakat
