@@ -47,7 +47,7 @@ export default function Navbar() {
             </Link>
 
             <Link
-              href="#"
+              href="/panduan"
               className="text-sm font-medium text-white/70 no-underline transition hover:text-white"
             >
               Panduan
@@ -123,7 +123,7 @@ export default function Navbar() {
               </Link>
 
               <Link
-                href="#"
+                href="/panduan"
                 className="text-sm font-semibold text-white/70 no-underline transition hover:text-white"
                 onClick={() => setIsOpen(false)}
               >
