@@ -9,12 +9,12 @@ export default function FeaturesSection() {
   return (
     <div className="space-y-12 py-2 w-full">
 
-      {/* PERBAIKAN UTAMA: Ditambahkan w-full agar mx-auto bisa menghitung titik tengah layar dengan akurat */}
-      <div className="w-full text-center flex flex-col items-center justify-center max-w-3xl mx-auto space-y-2">
-        <span className="text-[10px] font-bold uppercase tracking-widest text-cyan-400">
+      {/* PAKSA MENGGUNAKAN TANDA SERU (!) UNTUK OVERRIDE SEMUA BUG LAYOUT */}
+      <div className="w-full !text-center flex flex-col !items-center !justify-center max-w-3xl !mx-auto space-y-2">
+        <span className="w-full block !text-center !mx-auto text-[10px] font-bold uppercase tracking-widest text-cyan-400">
           Fitur Utama
         </span>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight leading-tight">
+        <h2 className="w-full block !text-center !mx-auto text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight leading-tight">
           Semua yang Anda Butuhkan dalam Satu Platform
         </h2>
       </div>
