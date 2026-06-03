@@ -42,7 +42,7 @@ const statistics: Array<{
 
 export default function StatisticsSection() {
   return (
-    <section className="relative py-20 md:py-28">
+    <section className="relative py-24 md:py-32">
       <div className="absolute inset-x-0 top-12 h-48 bg-[radial-gradient(circle_at_center,rgba(0,209,255,0.12),transparent_65%)]" />
 
       <Container>
