@@ -60,6 +60,20 @@ export default function Navbar() {
                Tentang Kami
              </Link>
            </nav>
+            <Link
+              href="/panduan"
+              className="text-sm font-medium text-white/70 no-underline transition hover:text-white"
+            >
+              Panduan
+            </Link>
+
+            <Link
+              href="/about"
+              className="text-sm font-medium text-white/70 no-underline transition hover:text-white"
+            >
+              Tentang Kami
+            </Link>
+          </nav>
 
            {/* Desktop Actions */}
            <div className="hidden items-center gap-4 md:flex">
@@ -123,7 +137,7 @@ export default function Navbar() {
               </Link>
 
               <Link
-                href="#"
+                href="/panduan"
                 className="text-sm font-semibold text-white/70 no-underline transition hover:text-white"
                 onClick={() => setIsOpen(false)}
               >
@@ -131,7 +145,7 @@ export default function Navbar() {
               </Link>
 
               <Link
-                href="#"
+                href="/about"
                 className="text-sm font-semibold text-white/70 no-underline transition hover:text-white"
                 onClick={() => setIsOpen(false)}
               >
